@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>皮爷の商城——支付页面</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link href="/static/css/payment.css" rel="Stylesheet" />
+    <link rel="icon" href="/static/images/index/py.ico">
+    <script src="/static/js/init.js"></script>
+</head>
+
+<body>
+    <!-- 页面顶部-->
+    <header id="header"></header>
+
+    <div id="navlist">
+        <ul>
+            <li class="navlist_gray_left"></li>
+            <li class="navlist_gray">确认订单信息</li>
+            <li class="navlist_gray_arrow"></li>
+            <li class="navlist_gray">支付订单<b></b></li>
+            <li class="navlist_gray_arrow"></li>
+            <li id="pay_res" class="navlist_blue">支付完成<b></b></li>
+            <li class="navlist_blue_right"></li>
+        </ul>
+    </div>
+    <div id="container">
+        <div>
+            <h1><i>支付结果</i>
+                <span class="rt">支付订单：<b id='orderID'>{{ new_order.orderNo }}</b>&nbsp;
+                    支付金额：<b id='money'>{{ new_order.real_money }}元</b></span></h1>
+        </div>
+        <div class="rightsidebar_box rt">
+            <div class="pay_result">
+                <img src="/static/images/pay/pay_succ.png" alt="" />
+                <p>支付成功</p>
+                <span><a href="/order">查看订单&gt;&gt;</a></span>
+                <br />
+                皮爷商城不会以系统异常、订单升级为由，要求你点击任何链接进行退款操作！
+            </div>
+        </div>
+    </div>
+    <footer id="footer"></footer>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script>
+        (function ($) {
+            $.getUrlParam = function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+        })(jQuery);
+{#        $('#orderID').html($.getUrlParam("orderID"))#}
+{#        $('#money').html($.getUrlParam("money")+'元')#}
+    </script>
+</body>
+
+</html>

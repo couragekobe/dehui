@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://www.codeboy.com/products.html -->
+<html>
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head lang="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>皮爷の箱包馆List</title>
+  <link rel="icon" href="../../images/index/py.ico">
+  <link rel="stylesheet" href="../../css/index.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/products.css">
+  <script src="../../js/init.js"></script>
+</head>
+
+<body>
+  <header id="header"></header>
+  <!-- banner部分-->
+  <div class="store">
+    <img src="../../images/list/gulid.jpg">
+  </div>
+
+  <!-- -->
+  <div class="store_action">
+    <div class="store_action_left">
+      <div class="store_action_left_content">
+        <div id="plist">
+          <div class="salc_top">
+            全部产品
+          </div>
+          <div class="salc_content">
+            {% for good in goods %}
+              <div class="product">
+                  <a href="/goods/detail/{{good.id}}/">
+                    <img src="{{good.head_image}}" alt="{{good.title}}">
+                  </a>
+                  <div class="addRemoveProduct">
+                    <p class="goods_detail">
+                      <span class="price">￥{{good.price}}</span>
+                      <a href="/goods/detail/{{good.id}}/" class="title" title="{{good.title}}">
+                        {{good.title}}
+                      </a>
+                    </p>
+                    <!--<div>
+                      <span class="reduc lf">-</span>
+                      <input type="text" value="1" class="lf">
+                      <span class="add lf">+</span>
+                      <div class="addcart">
+                        加入购物车
+                      </div>
+                    </div>-->
+                  </div>
+                </div>
+            {% endfor %}
+
+
+             <!-- <div class="product" id="1">
+              <a href="product_details.html">
+                <img src="../../images/list/product_1.png" alt="复古背包">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥698.00</span>
+                  <a href="product_details.html" class="title" title="复古背包">
+                    复古双肩背包
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+             <div class="product" id="2">
+              <a href="product_details.html">
+                <img src="../../images/list/product_2.png" alt="复古背包">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥698.00</span>
+                  <a href="product_details.html" class="title" title="复古背包">
+                    复古双肩背包复古双肩背包复古双肩背包复古双肩背包复古双肩背包复古双肩背包
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product" id="3">
+              <a href="product_details.html">
+                <img src="../../images/list/product_3.png" alt="复古背包">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥698.00</span>
+                  <a href="product_details.html" class="title" title="复古背包">复古双肩背包
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product" id="4">
+              <a href="product_details.html">
+                <img src="../../images/list/product_4.png" alt="复古背包">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥698.00</span>
+                  <a href="product_details.html" class="title" title="复古背包">复古双肩背包
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product" id="5">
+              <a href="product_details.html">
+                <img src="../../images/list/product_5.png" alt="复古背包">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥698.00</span>
+                  <a href="product_details.html" class="title" title="复古背包">复古双肩背包
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product" id="6">
+              <a href="product_details.html">
+                <img src="../../images/list/product_6.png" alt="复古背包">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥698.00</span>
+                  <a href="product_details.html" class="title" title="复古背包">复古双肩背包
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product" id="7">
+              <a href="product_details.html">
+                <img src="../../images/list/product_7.png" alt="复古背包">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥698.00</span>
+                  <a href="product_details.html" class="title" title="复古背包">复古双肩背包
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product" id="8">
+              <a href="product_details.html">
+                <img src="../../images/list/product_8.png" alt="复古背包">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥698.00</span>
+                  <a href="product_details.html" class="title" title="复古背包">复古双肩背包
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>
+             <div class="product" id="9">
+              <a href="product_details.html">
+                <img src="../../images/list/product_9.png" alt="复古背包">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥698.00</span>
+                  <a href="product_details.html" class="title" title="复古背包">复古双肩背包
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>-->
+            <!--分页条-->
+             <div class="pager">
+              <span class="disabled">上一页</span>
+              <span class="current">1</span>
+              <a href="javascript:;" class="tcdNumber">2</a>
+              <a href="javascript:;" class="tcdNumber">3</a>
+              <a href="javascript:;" class="tcdNumber">4</a>
+              <a href="javascript:;" class="tcdNumber">5</a>
+              <a href="javascript:;" class="nextPage">下一页</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="store_action_right rt">
+        <div class="store_action_right_top">
+          <p><img src="../../images/list/foodstore_icon2.png" alt="">商家公告</p>
+          <div>
+            <p>皮爷皮爷</p>
+            <p>英明神武</p>
+            <p>千秋万代</p>
+            <p>一统江湖</p>
+          </div>
+        </div>
+        <div class="store_action_right_cart" style="position: absolute; top: 300px;">
+          <div class="store_action_right_cart_top">
+            购物车 <span class="clear rt">清空</span>
+          </div>
+          <div class="store_action_right_cart_content">
+            <div></div>
+        <div id="5">
+        <span>精选双人餐</span>
+        <div><span class="cart_reduc lf">-</span><input type="text" value="1" class="lf"/><span class="cart_add lf">+</span></div>
+        <<span class="rt pc">￥:<span class="cart_unit_price">20.00</span></span>
+        </div>
+         </div>
+          <div class="sarc">
+            <div class="total_price lf">
+              <img src="../../images/list/foodstore_car_2.png" alt="">￥:<span>0.00</span>
+            </div>
+            <div class="settle lf">
+              <a href="#" style="color:#fff;">去结算</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--商家-->
+  </div>
+  <footer id="footer"></footer>
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/jquery.page.js"></script>
+  <!-- <script src="../js/base.js"></script> -->
+  <script src='../../js/index.js'></script>
+  <!-- <script src="../js/products.js"></script> -->
+  <script>
+    $('#header').load('/header.html');
+    $('#footer').load('/footer.html');
+  </script>
+  <!--
+
+{#  <script>#}
+{#    //获取参数#}
+{#    (function ($) {#}
+{#      $.getUrlParam = function (name) {#}
+{#        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");#}
+{#        var r = window.location.search.substr(1).match(reg);#}
+{#        if (r != null) return unescape(r[2]);#}
+{#        return null;#}
+{#      }#}
+{#    })(jQuery);#}
+{#    $(function () {#}
+{#      var lists = {#}
+{#        1: '旅行箱',#}
+{#        2: '背包类',#}
+{#        3: '手提包'#}
+{#      }#}
+{##}
+{#      $.ajax({#}
+{#        type: "get",#}
+{#        url: baseUrl + "/memberapp/goodlist",#}
+{#        data: {#}
+{#          typeid: $.getUrlParam("typeid")#}
+{#        },#}
+{#        success: function (data) {#}
+{#          var result = JSON.parse(data)#}
+{#          console.log(result)#}
+{#          //加载渲染#}
+{#          var list = ''#}
+{#          result.data.forEach(el => {#}
+{#            list += '<div class="product" data-id="' + el.goodid +#}
+{#              '"><a href="product_details.html?typeid=' + el.typeid + '&goodid=' + el.goodid + '">'#}
+{#            list += '<img src="' + baseUrl + '/images' + el.goodsimg + '" alt="' + el.title + '"></a>'#}
+{#            list += '<div class="addRemoveProduct"><a href=""product_details.html?typeid=' + el.typeid +#}
+{#              '&goodid=' + el.goodid + '" class="title" title="' + el.title +#}
+{#              '">' + el.title + '</a>'#}
+{#            list += '<span class="price">￥' + el.price + '</span></div></div>'#}
+{#          });#}
+{#          list += '<div class="pager"></div>'#}
+{#          $('.salc_content').html(list)#}
+{##}
+{##}
+{#          $('.salc_top').html(lists[$.getUrlParam("typeid")])#}
+{##}
+{#          // var lists =[]#}
+{#          // result.data.forEach(el => {#}
+{#          //   var list=''#}
+{#          //   list += '<div class="product" data-id="' + el.goodid + '"><a href="product_details.html?typeid='+el.typeid+ '&goodid='+ el.goodid +'">'#}
+{#          //   list += '<img src="' + baseUrl + '/images' + el.goodsimg + '" alt="' + el.title + '"></a>'#}
+{#          //   list += '<div class="addRemoveProduct"><p><span class="price">￥' + el.price + '</span>'#}
+{#          //   list += '<a href="product_details.html?typeid=' + el.goodid + '" class="title" title="' + el.title +'">' + el.title + '</a></p></div></div>' #}
+{#          //   lists.push(list)           #}
+{#          // });#}
+{#          // console.log(lists)#}
+{##}
+{##}
+{##}
+{#          // $('.pager').createPage(lists,9)#}
+{#        },#}
+{#        error: function (data) {#}
+{#          console.log(data)#}
+{#        }#}
+{#      })#}
+{#    })#}
+{#    //加载#}
+{#  </script>#}
+   -->
+
+</body>
+
+</html>

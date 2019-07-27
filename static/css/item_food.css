@@ -1,0 +1,331 @@
+@charset "utf-8";
+/*通用*/
+#top_input #input {
+    border:  1px solid #E89AA8 !important;
+}
+/*美食餐饮*/
+.delicacy,.store{
+    width:1000px;
+    margin: 24px auto 0;
+    height: auto;
+}
+.delicacy:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+.delicacy_top,.store_top{
+    font:24px Microsoft YaHei;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #d9d9d9;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+.delicacy_content{
+    float: left;
+}
+.delicacy_content:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.delicacy_top>img{
+    margin-bottom: -5px;
+    margin-right: 10px;
+}
+.delicacy_content>div{
+    float: left;
+    margin-bottom: 10px;
+    position: relative;
+    background: #e8e8e8;
+    overflow: hidden;
+}
+
+.delicacy_content>div:nth-child(1){
+    margin-right: 10px;
+    width:609px;
+    height:377px;
+}
+.delicacy_content>div:nth-child(1)>img{
+    position: absolute;
+    top:56px;
+    right:30px;
+    cursor: pointer;
+}
+.delicacy_content>div:nth-child(1)>.description{
+    width:224px;
+    height:243px;
+    position: absolute;
+    top:55px;
+    left:65px;
+}
+.delicacy_content>div:nth-child(1)>.description>img{
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.delicacy_content>div:nth-child(1)>.description>p.action{
+    font:32px "microsoft yahei";
+    color: #333;
+}
+.delicacy_content>div:nth-child(1)>.description>p.description_des{
+    font:12px "microsoft yahei";
+    margin-bottom: 24px;
+}
+.delicacy_content>div:nth-child(1)>.description>p.price{
+    font:32px "microsoft yahei";
+    color: #E89AA8;
+    margin-bottom: 12px;
+}
+.delicacy_content>div:nth-child(1)>.description>div.detail{
+   width:130px;
+    height: 40px;
+    line-height: 40px;
+    background: -moz-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -webkit-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -o-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -ms-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.delicacy_content>div:nth-child(2){
+    width:381px;
+    height:377px;
+}
+.delicacy_content>div:nth-child(2)>img{
+    position: absolute;
+    top:80px;
+    right: 45px;
+    cursor: pointer;
+}
+.delicacy_content>div:nth-child(2)>.description{
+    width:179px;
+    height:221px;
+    position: absolute;
+    top:63px;
+    left:24px;
+}
+.delicacy_content>div:nth-child(2)>.description>img{
+    margin-bottom: 18px;
+    cursor: pointer;
+
+}
+.delicacy_content>div:nth-child(2)>.description>p.action{
+    font:32px "microsoft yahei";
+    color: #333;
+}
+.delicacy_content>div:nth-child(2)>.description>p.description_des{
+    font:12px "microsoft yahei";
+    margin-bottom: 24px;
+}
+.delicacy_content>div:nth-child(2)>.description>p.price{
+    font:32px "microsoft yahei";
+    color: #E89AA8;
+    margin-bottom: 12px;
+}
+.delicacy_content>div:nth-child(2)>.description>div.detail{
+    width:130px;
+    height: 40px;
+    line-height: 40px;
+    background: -moz-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -webkit-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -o-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -ms-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.delicacy_content>div:nth-child(3){
+    margin-right: 9px;
+    width:377px;
+    height:233px;
+}
+.delicacy_content>div:nth-child(3)>img{
+    position: absolute;
+    top:70px;
+    right: 17px;
+    cursor: pointer;
+}
+.delicacy_content>div:nth-child(3)>.description{
+    width:149px;
+    height:119px;
+    position: absolute;
+    top:21px;
+    left:33px;
+}
+.delicacy_content>div:nth-child(3)>.description>img{
+    margin-bottom: 18px;
+    cursor: pointer;
+
+}
+.delicacy_content>div:nth-child(3)>.description>p.action{
+    font:22px "microsoft yahei";
+    color: #333;
+}
+.delicacy_content>div:nth-child(3)>.description>p.description_des{
+    font:12px "microsoft yahei";
+    margin-bottom: 0px;
+}
+.delicacy_content>div:nth-child(3)>.description>p.price{
+    font:22px "microsoft yahei";
+    color: #E89AA8;
+    margin-bottom: 12px;
+}
+.delicacy_content>div:nth-child(3)>.description>div.detail{
+    width:102px;
+    height: 30px;
+    line-height: 30px;
+    background: -moz-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -webkit-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -o-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -ms-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.food1{
+    height:235px;
+    margin-right: 10px;
+    text-align: center;
+    background-color: #E8E8E8;
+    width: 198px;
+    position: relative;
+    overflow: hidden;
+}
+.food1>img{
+    cursor: pointer;
+}
+.food1:last-child{
+    margin-right: 0px;
+}
+.food1 h2 {
+    color: #333;
+    font:16px simhei;
+    font-weight: bold;
+    text-align: center;
+}
+.food1 h2 span {
+    font-size: 12px;
+}
+.food1 p {
+    margin-top: 5px;
+    color: #E89AA8;
+    font-weight: bold;
+    font:12px Microsoft YaHei;
+}
+.food1 a {
+    padding: 6px 23px;
+    color: #ffffff;
+    font-size: 14px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background: -moz-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -webkit-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -o-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    background: -ms-linear-gradient(top, #E89AA8 0%, #e27f91 100%);
+    position: absolute;
+    bottom: 10px;
+    left:51px;
+}
+.food1 a:hover,.delicacy_content>div>.description>div.detail:hover{
+    background: -moz-linear-gradient(top, #dc929f 0%, #d67989 100%);
+    background: -webkit-linear-gradient(top, #dc929f 0%, #d67989 100%);
+    background: -o-linear-gradient(top, #dc929f 0%, #d67989 100%);
+    background: -ms-linear-gradient(top, #dc929f 0%, #d67989 100%);
+}
+
+/*店家*/
+.store{
+    padding-bottom: 50px;
+}
+.store_content>div{
+    float: left;
+    width:238px;
+    height:315px;
+    cursor: pointer;
+    margin-right: 16px;
+}
+.store_content{
+    margin-bottom:15px ;
+}
+.store_content:after{content:"";display:block;clear:both;}
+.store_content>div:last-child{
+    margin-right: 0px;
+}
+.store_content>div:hover{
+    box-shadow: 0 0 20px #ccc;
+}
+
+.store_content>div>p{
+    margin-left: 10px;
+}
+.one{
+    margin-top: 18px;
+    font:18px simhei;
+}
+.one>span{
+    font:12px simhei;
+}
+.two{
+    margin-top: 10px;
+}
+.two>span{
+    margin-right: 12px;
+}
+.store_content>div>p.three{
+    margin-top: 3px;
+
+}
+.three>span{
+    margin-right: 18px;
+}
+.three>span>img{
+    position: relative;
+    top:3px;
+    margin-right: 5px;
+}
+
+
+/*弹出的小广告部分*/
+#msg {
+    width:200px;height:200px;
+    position:fixed;
+    right:0px;
+    bottom:-200px;
+    background:url(../images/gif1.gif) no-repeat center center;
+}
+#msg>a{
+    float:right;
+    padding:5px 10px;
+    border-radius:50%;
+    box-shadow:1px 1px gray;
+    border:1px solid black;
+    cursor:pointer;
+    font-size:14px;
+    background:black;
+    color:#fff;
+}
+/*图片放大首页*/
+.food>img,.food1 img{
+    cursor: pointer;
+    transition: 1s transform;
+    -webkit-transition: 1s -webkit-transform;
+    -moz-transition: 1s -moz-transform;
+}
+
+.food>img:hover,.food1 img:hover{
+    -webkit-transform: scale(1.1, 1.1);
+    -webkit-transition: 1s -webkit-transform;
+    -moz-transform: scale(1.1, 1.1);
+    -moz-transition: 1s -moz-transform;
+    transform: scale(1.1, 1.1);
+    transition: 1s transform;
+}

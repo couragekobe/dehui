@@ -1,0 +1,159 @@
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+	margin:0;
+	padding:0;
+	border:0;
+	list-style:none;
+}
+body{
+	font: 12px  YouYuan , Arial, Helvetica, sans-serif,"simhei";
+    color: #666;
+    background-color: #f1f3f4;
+	padding-top:50px;
+}
+
+a{
+	color:#696969;
+	text-decoration:none;
+}
+a:hover{
+	color:#3385FF;
+}
+#body{
+	text-align: center;
+}
+input:focus{
+	outline:none;
+}
+/* ����������ʽ */
+#container{
+	width:1000px;
+	margin:0 auto;
+}
+
+/* ҳ��ײ� */
+#footer{
+	height:80px;
+	margin-top:50px;
+}
+#footer div{
+	float:left;
+	margin:0 95px;
+	text-align:center;
+}
+/* ���õײ� */
+#bottom{
+	margin-top:30px;
+}
+.download{
+	float:right;
+}
+.download img{
+	width:100px;
+}
+.service{
+	float:right;
+	width:125px;
+	margin-right:10px;
+}
+.service p{
+	font-size:14px;
+	text-align:center;
+	margin-bottom:10px;
+	color:#333;
+}
+.service img:last-child{
+	margin-top:3px;
+}
+#bottom .proprietary{
+	font-size:16px;
+	text-align:center;
+}
+#footLogo{
+	width:168px;
+	border-radius:10px;
+}
+#footFont{
+	width:650px;
+}
+
+/*顶部*/
+#top{
+	top:50px;
+}
+#top-logo,#top-nav{
+	float:left;
+}
+
+/*顶部logo*/
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+/*顶部导航*/
+#top-nav{
+	position:relative;	
+	font-size:20px;
+	margin-left:128px;
+	margin-top:10px;
+}
+#top-nav b{
+	margin-left:12px;
+	
+}
+
+div:after{
+content:"";
+display:block;
+clear:both;
+}
+
+/*3.主体部分*/
+#main{
+	margin-top:80px;
+	margin-left:150px;
+	width:758px;
+	background:#fff;
+}
+#header{
+	font-size:20px;
+	padding:20px 30px 10px;
+	background:#E7E7E6;
+}
+#body div.content{
+	font-size:18px;
+	height:30px;
+	margin:50px 30px auto;
+	padding-bottom:50px;
+	border-bottom:1px solid #e8e8e8;
+}
+#body div.content input{
+	width:168px;
+	height:28px;
+	border:1px solid #e8e8e8;
+}
+#body div.content img{
+	width:160px;
+	height:30px;
+}
+#body div #code_input{
+	position:relative;
+	width:170px;
+	margin-left:10px;
+	bottom:16px;
+}
+#body .content #save{
+	width:150px;
+	height:50px;
+	border-radius:3px;
+	border:none;
+	background:#997679;
+} 
+
+#body #code{
+	position: relative;
+	width:130px;
+	height:40px;
+	margin-left:80px;
+}
+
+

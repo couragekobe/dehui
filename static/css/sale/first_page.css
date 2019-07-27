@@ -1,0 +1,52 @@
+/* 顶部logo */
+#top #top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+#top #top-logo span{
+	font:normal normal bold 24px Arial;
+	display: block;
+	position:relative;
+	margin-left:200px;
+	bottom:40px;
+}
+/* 主体部分 */
+div#main{
+	width:758px;
+	height:480px;
+	margin:30px auto 30px 180px;
+}
+/* 主体左侧 */
+#main .main_left{
+	float:left;
+	position:relative;
+	background:#E8DFC4;
+	font-size: 20px;
+	width:300px;
+	height:480px;
+}
+#main .main_left p{
+	display:block;
+	padding-top:23px;
+	text-align:center;
+	font-weight:bold;
+}
+
+/* 主体右侧 */
+#main .main_right{
+	float:left;
+	position:relative;
+	width:400px;
+	background:#CCC;
+	font-size:18px;
+}
+#main .main_right p{
+	display:block;
+	text-align:center;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+
+#footer{
+	clear:both;
+}

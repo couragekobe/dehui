@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<form action="{% url 'register' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>用户注册</h2>
+
+    <p>
+        用户名：<input type="text" name="salename">
+    </p>
+    <p>
+        {{ message1 }}
+    </p>
+    <p>
+        密码：<input type="password" name="spwd">
+    </p>
+    <p>
+        确认密码：<input type="password" name="cupwd">
+    </p>
+    <p>
+        邮箱：<input type="email" name="semail">
+    </p>
+    <p>
+        上传头像:<input type="file" name="simg">
+        {{ message2 }}
+    </p>
+    <p>
+       <input type="submit" value="注册">
+    </p>
+    <hr>
+    <h3><a href="{% url 'login' %}">已有账户登录</a></h3>
+    <h3><a href="{% url 'index' %}">回首页</a></h3>
+</form>
+</body>
+</html>

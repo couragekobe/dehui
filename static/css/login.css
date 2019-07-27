@@ -1,0 +1,351 @@
+@charset "utf-8";
+#top {
+    /*border: 1px solid red;*/
+    height: 52px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+#top .top {
+    margin-left: -5px;
+}
+
+#top .top img{
+    width: 168px;
+    border-radius: 10px;
+}
+
+#top span {
+    color: #4f4d4e;
+    font-size: 24px;
+    vertical-align: baseline;
+    position: relative;
+    top: -7px;
+    left:10px;
+}
+
+#container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0px auto;
+    overflow-x: hidden;
+    height: 560px;
+    background-image: url("../images/user/register_bg.jpg");
+    background-size: cover;
+
+}
+#cover{
+    width: 280px;
+    height: 375px;
+    margin-right: 122px;
+    margin-top: 122px;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.3);
+}
+#cover .txt{
+    float: left;
+    overflow: hidden;
+    width: 253px;
+    height: 350px;
+    padding: 10px;
+    border-radius: 10px;
+}
+#form-register .txt{
+    padding: 10px;
+}
+#cover .txt p,#form-register.txt p{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #f0f0f0;
+}
+#cover .txt p,#cover .txt p span a,#form-register .txt p,#form-register .txt p span a{
+    color:#fff;
+}
+#cover .txt p,.container .txt p{
+    font-size: 18px;
+}
+#form-register .txt p span a{
+    font-size: 12px;
+    color:#fff;
+    position: relative;
+    right: -207px;
+}
+#cover .txt p span a{
+    font-size: 12px;
+    color:#fff;
+    position: relative;
+    right: -130px;
+}
+/*#cover .txt .text{*/
+    /*margin:25px 0 -15px 0;*/
+/*}*/
+#cover .txt .text input{
+    border:1px solid #ddd;
+    border-radius: 3px;
+    padding:10px 20px;
+    width:218px;
+    margin-top: 16px;
+    box-shadow:inset 0 1px 1px rgba(0 0 0 .075);
+}
+#cover .txt .text span img {
+    width: 20px;
+    position: relative;
+    top: -28px;
+    right: -235px;
+}
+
+/* #cover .txt .text span:before{
+    content: "\e084";
+} */
+#cover .txt .chose,.chose_login{
+    margin-bottom:10px;
+    color: #ffffff;
+}
+#cover .txt .chose span{
+    float:right;
+}
+#cover .txt .chose .checkbox{
+    position: relative;
+    top: 2px;
+}
+.button_login{
+    background: -moz-linear-gradient(top, #997679 0%, #997679 100%);
+    background: -webkit-linear-gradient(top, #997679 0%, #997679 100%);
+    background: -o-linear-gradient(top, #997679 0%, #997679 100%);
+    background: -ms-linear-gradient(top, #997679 0%, #997679 100%);
+    border-radius: 2px;
+    color:#fff;
+    text-align:center;
+    width:263px;
+    line-height:35px;
+    font-weight:bold;
+    border-radius:2px;
+    margin:0 auto;
+}
+
+.button_login:disabled{
+    background: #999999
+}
+
+.parent {
+    position: relative;
+}
+.parent > video {
+    position: absolute;
+    z-index: -1;
+}
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0px auto;
+    overflow-x: hidden;
+    height: 560px;
+    /*border: 1px solid red;*/
+    background-image: url("../images/user/register_bg.jpg");
+    background-size: cover;
+}
+h2 {
+    text-align: center;
+}
+.panel {
+    /*border: 1px solid #aaa;*/
+    border-radius: 2px;
+    /*box-shadow: 0 0 5px #aaa;*/
+    min-height: 100px;
+    padding: 1.2em .6em;
+    width:590px;
+    height:465px;
+    /*border:1px solid blue;*/
+    margin-right: 25px;
+    margin-top: 50px;
+    box-sizing: border-box;
+    background-color:rgba(0,0,0,0.2);
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group > label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    color: #ffffff;
+    font-size: 14px;
+}
+.form-group > input {
+    padding:10px 20px;
+    width:235px;
+    margin-top: 12px;
+    border-radius: 2px;
+}
+.form-group > span {
+    width: 270px;
+    color: #fff;
+    padding: 4px;
+    border-radius: 2px;;
+}
+.msg-default {
+    background-color: #999;
+}
+.msg-error {
+    background-color: #d00;
+}
+.msg-success {
+    background-color: #0d0;
+}
+.hidden {
+    display: none;
+}
+.true{
+	position:relative;
+	top:5px;
+}
+input[type="button"] {
+    background: -moz-linear-gradient(top, #997679 0%, #997679 100%);
+    background: -webkit-linear-gradient(top, #997679 0%, #997679 100%);
+    background: -o-linear-gradient(top, #997679 0%, #997679 100%);
+    background: -ms-linear-gradient(top, #997679 0%, #997679 100%);
+    /*border: 1px solid #0a0;*/
+    width: 276px;
+    color: #fff;
+    border-radius: 2px;
+}
+#showResult{
+    width: 258px;
+    height: 30px;
+    /* margin-top: 250px; */
+    /* margin-bottom: -51px; */
+    position: absolute;
+    top: 330px;
+    right: 135px;
+    display: inline-block;
+    line-height: 30px;
+    /*background: red;*/
+    font-size: 12px;
+    color: #fff;
+    padding-left: 8px;
+}
+
+/*alert 框显示*/
+#alertMsg {
+	display: none;
+    width: 380px;
+    border: 1px solid #ddd;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px black;
+    padding: 21px;
+    font-size: 12px;
+    position: absolute;
+    /* text-align: center; */
+    background: #fff;
+    z-index: 100000;
+    display: block;
+    position: fixed;
+    left: 480px;
+    top: 181px;
+    width: 340px;
+    height: 151px;
+}
+
+#alertMsg_info {
+	width: 265px;
+    height: 116px;
+    line-height: 1.6em;
+    text-align: center;
+    color: #333333;
+    font-size: 16px;
+    padding-top: 55px;
+    padding-left: 52px;
+    background: url(/images/tan.png) no-repeat 12% 37%;
+    background-size: 9% auto;
+}
+
+#alertMsg_btn1, #alertMsg_btn2 {
+	display: inline-block;
+    position: relative;
+    top: -63px;
+    left: 147px;
+    padding-left: 0px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #FE6A00;
+}
+
+#alertMsg_btn1 cite, #alertMsg_btn2 cite {
+	line-height: 21px;
+    display: inline-block;
+    padding:  5px 14px 4px 10px;
+    font-style: normal;
+    font-size: 16px;
+    position: relative;
+    left: 4px;
+    border-radius: 2px;
+}
+
+
+
+/* ************ */
+.verification{
+    height:70px;
+    position: relative;
+}
+.verification_img{
+    position: absolute;
+    top:6px;
+}
+.verification_input{
+    position: absolute;
+    border:1px solid #ddd;
+    border-radius: 3px;
+    padding:10px 20px;
+    width:102px;
+    right:0px;
+    /* margin-top:16px; */
+    box-shadow: inset 0 1px 1px rgba(0 0 0 .075);
+}
+.verification_text{
+    position: absolute;
+    color: #d00;
+    top:45px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

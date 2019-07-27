@@ -1,0 +1,64 @@
+/*顶部*/
+#top{
+	top:50px;
+}
+/*顶部logo*/
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+#top-logo span{
+	display:block;
+	font:normal normal bold 24px Arial;
+	margin-left:200px;
+	position:relative;
+	bottom:35px;
+}
+/*3.主体部分*/
+#main{
+	margin-top:80px;
+	margin-left:280px;
+	width:400px;
+	background:#fff;
+}
+#header{
+	font-size:20px;
+	padding:20px 30px 10px;
+	background:#E7E7E6;
+}
+#body div{
+	padding:10px 40px;
+}
+#body div span{
+	font-size:18px;
+	display:block;
+}
+#body input{
+	display:block;
+	width:310px;
+	height:38px;
+	border:none;
+	border-radius:6px;
+	border:1px solid #e8e8e8;
+}
+#body input#code_input{
+	position:relative;
+	width:170px;
+	margin-left:140px;
+	bottom:42px;
+}
+#body div img{
+	position:relative;
+	width:130px;
+	height:40px;
+	margin-top:15px;
+}
+#body input#index{
+	position:relative;
+	bottom:20px;
+}
+
+
+ 
+
+

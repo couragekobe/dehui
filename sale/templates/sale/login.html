@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>商家登录</title>
+  <link rel="stylesheet" href="/static/css/sale/basesale.css">
+  <link rel="stylesheet" href="/static/css/sale/login_1.css">
+ </head>
+ <body>
+	<!--整体-->
+	<div id="container">
+		<!--1.顶部-->
+		<div id="top">
+			<!--顶部logo-->
+			<div id="top-logo">
+				<a href="{% url 'index' %}">
+					<img src="/static/images/footer/logo.png">
+				</a>
+				<span>欢迎登陆</span>
+			</div>
+			<!--顶部导航-->
+		<!-- 	<div id="top-nav">
+				<ul>
+					<li>
+						<a href="new_goods.html">上传商品</a><b>|</b>
+					
+						<a href="closed_shelves.html">商品上架</a><b>|</b>
+					
+						<a href="#">商品下架</a><b>|</b>
+					
+						<a href="#">商家登录</a><b>|</b>
+			
+						<a href="#">用户信息</a><b>|</b>
+					
+						<a href="#">注销登陆</a>
+					</li>
+				</ul>
+			</div>		
+					</div>
+			 -->
+		<!--3、主体部分-->
+		<div id="main">
+			<table></table>
+            <div id="header">
+                <span><b>商家登录信息</b></span>
+            </div>
+            <!--分类信息 -->
+            <div id="body">
+                <!--分类名称-->
+				<form action="{% url 'login' %}" method="post">
+					{% csrf_token %}
+					<input type="password" name="password1"  style="display:none"/>
+                <div class="content">
+                    <span class="sname">卖家账号：</span>
+                    <input type="text" name="salename" value="" id="write" placeholder="请输入用户名" required>{{message }}
+                </div>
+                <!--分类描述-->
+                <div class="content">
+                    <span class="same">卖家密码：</span>
+					<input type="password" name="spassword" placeholder="请输入密码" required>
+                </div>   
+				 <!--验证码-->
+                <div class="content">	
+					<img src="{% url 'verifycode' %}" alt=""  id="code">
+					<input type="text" placeholder="请输入验证码" name="verify_code" id="code_input">	{{ code_message }}
+                </div> 
+                <!--提交按钮-->
+                <div class="content">
+                    <input id="index" type="submit" value="登录">
+                </div>
+				</form>
+            </div>
+        </div>
+		<!--4.底部页面-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->		
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>		
+	</div>
+ </body>
+</html>

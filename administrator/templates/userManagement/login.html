@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>后台登录</title>
+  <link rel="stylesheet" href="/static/css/administrator/base.css">
+  <link rel="stylesheet" href="/static/css/administrator/login_a.css">
+ </head>
+ <body>
+	<!--整体-->
+	<div id="container">
+		<!--3、主体部分-->
+		<div id="main">
+			<table></table>
+            <div id="header">
+                <span><b>后台登录</b></span>
+                <span>{{ m }}</span>
+            </div>
+            <!--分类信息 -->
+            <form action="/administrators/login/" method="POST">
+                {% csrf_token %}
+                <div id="body">
+                    <!--分类名称-->
+                    <div class="content">
+                        <span class="sname">账号：</span>
+                        <input type="text" name="username" id="write" required>
+                    </div>
+                    <!--分类描述-->
+                    <div class="content">
+                        <span class="same">密码：</span>
+                        <input type="password" name="password" minlength="6" maxlength="15" required>
+                    </div>
+                    <!--验证码-->
+                    <div class="content">
+                        <img src="/verify/code.png/" alt="" id="code">
+                        <input type="text" name="verify" id="code_input" placeholder="请输入验证码">
+                    </div>
+                    <!--提交按钮-->
+                    <div class="content">
+                        <input id="save" type="submit" value="登录">
+                    </div>
+                </div>
+            </form>
+        </div>
+		<!--4.底部页面-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->		
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>		
+	</div>
+ </body>
+</html>

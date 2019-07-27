@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>规格修改页面</title>
+</head>
+<body>
+    <form action="/sale/goods/mod_gui_/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="gui_id" value="{{ gds.id }}">
+        <p>规格价格：{{ gds.price }}</p>
+        <p>
+            修改的规格价格：<input type="text" name="new_price">
+        </p>
+        <p>
+            规格信息：{{ gds.spec_info }}
+        </p>
+        <p>
+            新规格信息:<input type="text" name="new_spec_info" >
+        </p>
+        <p>
+            商品库存:{{ gds.stock }}
+        </p>
+        <p>
+            新商品库存:<input type="text" name="new_stock">
+        </p>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>皮爷の箱包馆Details</title>
+    <link href="/css/index.css" rel="Stylesheet" />
+    <link href="/css/pro_details.css" rel="Stylesheet" />
+    <link href="/css/animate.css" rel="Stylesheet" />
+    <link rel="icon" href="/images/index/py.ico">
+    <script src="/js/init.js"></script>
+
+</head>
+
+<body>
+    <!-- 页面顶部-->
+    <header id='header'></header>
+
+    <!-- 内容-->
+    <!--细节导航-->
+    <div id="nav_detail">
+        <!-- <h5>首页 > 拉杆箱 > 90分旅行箱 1A</h5> -->
+        <h5>首页 > <a href="/goods/list/{{goods_type.id}}">{{goods_type.title}}</a>  > {{title}}</h5>
+    </div>
+    <!--产品预览-->
+    <div id="shop_detail">
+        <!-- 左侧-->
+        <div id="preview" class="lf">
+            <div id="mediumDiv">
+                 <img id="mImg" src="/images/goods/{{a_goods.id}}/{{head_image}}" />
+            </div>
+            <div id="icon_all">
+                <ul id="icon_list">{% for img  in image_list %}
+                    <li class="i1"><img src="/images/goods/{{a_goods.id}}/{{img}}" /></li>{% endfor %}
+                    <!-- 
+                    <li class="i1"><img src="../../images/product_detail/product_detail_img1.jpg" /></li>
+                    <li class="i1"><img src="../../images/product_detail/product_detail_img2.jpg" /></li>
+                    <li class="i1"><img src="../../images/product_detail/product_detail_img3.jpg" /></li>
+                    <li class="i1"><img src="../../images/product_detail/product_detail_img4.jpg" /></li>
+                    <li class="li"><img src="../../images/product_detail/product_detail_img5.jpg"/></li>
+                    -->
+                </ul>
+            </div>
+        </div>
+        <!-- 右侧-->
+        <div class="right_detail lf">
+            <!-- 商品名称-->
+            <h1>{{title}}</h1>
+            <!--<h1></h1>-->
+            <!-- 商品全称-->
+            <h3>{{desc}}</h3>
+            <!-- <h3></h3>-->
+            <!-- 价格部分-->
+            <div class="price">
+                <div id="pro_price"><b>售价：</b><span>{{price}}</span></div>
+                <div class="promise">
+                    <b>服务承诺：</b>
+                    <span>*退货补运费</span>
+                    <span>*30天无忧退货</span>
+                    <span>*48小时快速退款</span>
+                    <span>*72小时发货</span>
+                </div>
+            </div>
+            <!-- 参数部分 客服-->
+            <p class="parameter">
+                <b>客服：</b>
+                <span class="connect">联系客服</span><img class="gif" src="/images/product_detail/kefuf.gif">
+            </p>
+            <!-- 规格-->
+            <p class="style" id="choose_color">
+                {% if spec_name %}
+                <s class="color">选择{{spec_name}}：</s>
+                <ul>
+                    {% for spec in goods_specs %}
+                    <a href="/goods/detail/{{a_goods.id}}/{{spec.id}}/"{% if spec.is_select %} style="background: red;"{% endif %}>{{spec.spec_info}}</a>
+                    <!-- <input type="button" class="i1" value="{{spec.spec_info}}" title="{{spec.spec_info}}" /> -->
+                    {% endfor %}
+                </ul>
+                <!-- 
+                <input type="button" class="i1" value="幻夜黑 24寸" title="幻夜黑 24寸" />
+                <input type="button" class="i1" value="极光蓝 26寸" title="极光蓝 26寸" />
+                -->
+                {% endif%}
+            </p>
+            <!-- 规格-->
+            <!-- 
+                <p>
+                    <s>规格：</s>
+                    <span class="avenge">20寸</span>
+                    <span class="avenge">26寸</span>
+                </p>
+            -->
+            <!-- 未选择规格，颜色时状态-->
+            <div class="message"></div>
+            <!-- 数量-->
+            <p class="accountChose">
+                <s>数量：</s>
+                <button class="numberMinus">-</button>
+                <input type="text" value="1" class="number" id="buy-num"  readOnly>
+                <button class="numberAdd">+</button>
+            </p>
+            <!-- 购买部分-->
+            <div class="shops">
+                <a href="#" class="buy lf" id="buy_now">立即购买</a>
+                <a href="#" class="shop lf" id="add_cart"><img src="/images/product_detail/product_detail_img7.png"
+                        alt="" />加入购物车</a>
+                <a href="#" class="collection lf" id="collect"><span>收藏</span><img src="/images/product_detail/product_detail_img6.png"
+                        alt="" /></a>
+            </div>
+        </div>
+    </div>
+    <!-- 为你推荐 -->
+    <!-- 
+
+    <div id="recommended">
+    <p>为你推荐<span>大家都在看</span></p>
+    <div id="demo" style="width:1000px;overflow:hidden;">
+        <div id="indemo" style="float: left;width: 200%;">
+            <div id="demo1" style="float:left">
+                 <div class="detail_1 lf">
+                    <div class="detail_img1">
+                        <img src="../../images/product_detail/product_detail_1.png" border="0">
+                    </div>
+                    <p>ThinkPad New S2 (20GUA00QCD)13.3英寸超霸</p>
+                </div>
+                <div class="detail_1 lf">
+                    <div class="detail_img1">
+                        <img src="../../images/product_detail/product_detail_2.png" border="0">
+                    </div>
+                    <p>戴尔 DELL燃7000 R1605S 超霸</p>
+                </div>
+                <div class="detail_1 lf">
+                    <div class="detail_img1">
+                        <img src="../../images/product_detail/product_detail_3.png" border="0">
+                    </div>
+                    <p>戴尔(DELL)魔方15MF Pro-R2505TSS灵</p>
+                </div>
+                <div class="detail_1 lf">
+                    <div class="detail_img1">
+                        <img src="../../images/product_detail/product_detail_4.png" border="0">
+                    </div>
+                    <p>联想(Lenovo) YOGA900 (YOGA4 PRO)多彩版</p>
+                </div>
+
+            </div>
+            <div id="demo2" style="float:left">
+            </div>
+        </div>
+    </div>
+     -->
+
+</div>
+    <!--商品详情-->
+    <div id="iteminfo">
+        <div id="tab">
+            <div class="tab lf">
+                <div class="cat">
+                    <span class="active"><a href="">商品详情</a></span>
+                    <span><a href="lookforward.html">商品评价</a></span>
+                </div>
+            </div>
+             <div class="cart rt">
+                <img src="../../images/product_detail/product_detail_img9.png" alt="" />
+            </div>
+        </div>
+        <div class="left lf">
+            <div class="all">
+                <!--<p><img src="images_x/pin_logo.png" alt=""/></p>-->
+                <div id="parm">
+                <div id="specification_parameter">
+                    <p>
+                        规格参数
+                        <img src="/images/product_detail/product_detail_icon_1.png" alt="" class="ys5"/>
+                    </p>
+{#                    <img src="images_x/canshu.png" alt="" class="ys5"/>#}
+                </div>
+                <ul>
+                    <li><a href="#">商品名称：联想YOGA 710</a></li>
+                    <li><a href="#">系统：windows10</a></li>
+                    <li><a href="#">内存容量：8G</a></li>
+                    <li><a href="#">分辨率：全清高屏(1920*1080)</a></li>
+                    <li><a href="#">显卡型号：GT940M</a></li>
+                    <li><a href="#">处理器：Intel i7低功耗版</a></li>
+                    <li><a href="#">显存容量：2G</a></li>
+                    <li><a href="#">分类：清薄本</a></li>
+                    <li><a href="#">硬盘容量:256G固态</a></li>
+                </ul>
+            </div>
+                <div id="product_introduction">
+                    <p>商品介绍
+                        <img src="/images/product_detail/product_detail_icon_4.png" alt="" class="ys5"/>
+                    </p>
+                    {% for img in detail_list %}
+                    <!-- <img class="lozad" data-src="/images/product_detail/product_detail.jpg" alt="" /> -->
+                    <img src="/images/goods/{{a_goods.id}}/details/{{img}}" alt="商品信息图片" />
+                    {% endfor %}
+
+                </div>
+                <div id="sale_protection">
+                    <p>
+                        售后保障
+                        <img src="/images/product_detail/product_detail_icon_3.png" alt="" class="ys5" />
+                    </p>
+
+                    <div class="sale_content">
+                        <p class="paper" id="sale_protect">
+                            <img src="/images/product_detail/product_detail_img16.png" alt="" />
+                            正品保障
+                        </p>
+
+                        <p class="content">
+                            皮爷商城向您保证所售商品均为正品行货，皮爷自营商品开具机打发票或电子发票。
+                        </p>
+
+                        <p class="paper">
+                            <img src="/images/product_detail/product_detail_img16.png" alt="" />
+                            全国联保
+                        </p>
+
+                        <p class="content">
+                            凭质保证书及皮爷商城发票，可享受全国联保服务，与您亲临商场选购的商品享受相同的质量保证。皮爷商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！
+                            注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！
+                        </p>
+                    </div>
+                </div>
+                <div id="packing_list">
+                    <p>
+                        包装清单
+                        <img src="/images/product_detail/product_detail_icon_2.png" alt="" class="ys5" />
+                    </p>
+
+                    <p class="content">笔记本 x1 适配器 x1 电源线 x1 电池 x1 说明书（电子版）x1 备注：笔记本电脑的背面只会标注此电脑的系列，例如： XPS 13-9360 ，
+                        如果您需要核实此电脑的具体配置型号是否与皮爷页面相符，可电话咨询皮爷厂商：800-858-2969</p>
+                </div>
+            </div>
+        </div>
+        <div class="right rt">
+            <div class="aside_nav">
+                <!-- <p><i><img src="../images/product_detail/product_detail_icon_g_1.png" alt=""/></i><a href="#specification_parameter">规格参数</a></p> -->
+                <p><i><img src="/images/product_detail/product_detail_icon_t_1.png" alt="" /></i><a href="#product_introduction">商品介绍</a></p>
+                <p><i><img src="/images/product_detail/product_detail_icon_d_1.png" alt="" /></i><a href="#sale_protection">售后保障</a></p>
+                <p><i><img src="/images/product_detail/product_detail_icon_bao_1.png" alt="" /></i><a href="#sale_protect">包装清单</a></p>
+                <p><i><img src="/images/product_detail/product_detail_icon_up_1.png" alt="" /></i><a href="#">回到顶部</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面底部-->
+    <footer id='footer'></footer>
+    <div class="modal" style="display:none">
+        <div class="modal_dialog">
+            <div class="modal_header">
+                操作提醒
+            </div>
+            <div class="modal_information">
+                <img src="/images/model/model_img2.png" alt="" />
+                <span>是否将您的宝贝加入收藏夹</span>
+
+            </div>
+            <div class="yes"><span>确定</span></div>
+            <div class="no"><span>取消</span></div>
+        </div>
+    </div>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/lozad.js"></script>
+    <script src="/js/init.js"></script>
+    <!--图片轮播悬停进入详情页效果-->
+    <!-- <script>
+        var speed = 20;
+        var tab = document.getElementById("demo");
+        var tab1 = document.getElementById("demo1");
+        var tab2 = document.getElementById("demo2");
+        tab2.innerHTML = tab1.innerHTML;
+
+        function Marquee() {
+            if (tab2.offsetWidth - tab.scrollLeft <= 0)
+                tab.scrollLeft -= tab1.offsetWidth
+            else {
+                tab.scrollLeft++;
+            }
+        }
+        var MyMar = setInterval(Marquee, speed);
+        tab.onmouseover = function () {
+            clearInterval(MyMar)
+        };
+        tab.onmouseout = function () {
+            MyMar = setInterval(Marquee, speed)
+        };
+    </script> -->
+    <!--添加到购物车 立即购买 收藏部分-->
+    <script>
+        //定义函数获取地址栏参数 如typeid,goodid
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        //获取当前商品的id
+        var goodid = $.getUrlParam("goodid");
+    </script>
+    <script type="text/javascript">
+        //获取颜色、规格、数量
+        function getPro() {
+            var pro = {}
+            //颜色取值
+            $("#choose_color input").each(function (i, item) {
+                if ($(this).hasClass("borderChange")) {
+                    color = $(this).attr('data-id');
+                    pro['color'] = color
+                }
+            })
+            // console.log(color)
+            //规格取值
+            $(".avenge").each(function () {
+                if ($(this).hasClass("borderChange")) {
+                    norms = $(this).attr('data-id');
+                    pro['norms'] = norms
+                }
+            })
+            // console.log(norms)
+            //数量取值
+            buyAccount = $("#buy-num").val();
+            pro['buyAccount'] = buyAccount
+            // console.log(buyAccount);
+            console.log(pro)
+            return pro
+        }
+        //加入购物车操作
+        $("#add_cart").click(function (e) {
+            e.preventDefault();
+            pro = getPro();
+            color = pro['color']
+            norms = pro['norms']
+            buyAccount = pro['buyAccount']
+            //如果未选择，请选择商品信息
+            if (!color || !norms || buyAccount <= 0) {
+                //            $("#add_cart").text("加入购物车").css({"background":"#f5f5f5","color":"#000"})
+                alert("请选择商品信息");
+            } else {
+                $(".modal").show();
+                $(".modal_information span").html("是否将您的宝贝加入购物车");
+            }
+            $('.no').click(function () {
+                $('.modal').hide();
+            })
+            $('.yes').click(function () {
+                $.ajax({
+                    type: "post",
+                    url: baseUrl + "/cart/addcart",
+                    data: {
+                        goodsid: goodid,
+                        colorid: color,
+                        sperid: norms,
+                        amount: buyAccount
+                    },
+                    success: function (data) {
+                        var result = JSON.parse(data);
+                        if (result.result) {
+                            alert("添加购物车成功！");
+                        } else if (!result.result) {
+                            alert(result.data);
+                        } else {
+                            alert("您还没登录呢！");
+                            window.location.href = data;
+                        }
+                        window.location.reload()
+                    },
+                    error: function (data) {
+                        alert("系统异常！");
+                        // window.location.reload()
+                    }
+                });
+            })
+        });
+        /**添加到收藏**/
+        $("#collect").click(function (e) {
+            e.preventDefault();
+            pro = getPro();
+            color = pro['color'];
+            norms = pro['norms'];
+            buyAccount = pro['buyAccount'];
+            //如果未选择，请选择商品信息
+            if (!color || !norms || buyAccount <= 0) {
+                alert("请选择宝贝的参数信息");
+            } else {
+                $(".modal").show();
+                $(".modal_information span").html("是否将您的宝贝加入收藏夹");
+            }
+            $('.no').click(function () {
+                $('.modal').hide();
+            });
+            $('.yes').click(function () {
+                $.ajax({
+                    type: "get",
+                    url: baseUrl + "/cart/addfavorite",
+                    data: {
+                        goodsid: goodid,
+                        colorid: color,
+                        sperid: norms,
+                        amount: buyAccount
+                    },
+                    success: function (data) {
+                        var result = JSON.parse(data);
+                        console.log(result);
+                        if (result.result) {
+                            alert("添加收藏成功！");
+                        } else if (!result.result) {
+                            alert(result.error);
+                        } else {
+                            alert("您还没登录呢！");
+                            window.location.href = data;
+                        }
+                        window.location.reload()
+                    },
+                    error: function (data) {
+                        console.log(data)
+                        //  alert("系统异常！");
+                        //  window.location.reload()
+                    }
+                });
+            })
+        })
+    </script>
+    <script>
+        $(function () {
+            var nav = $("#tab"); //得到导航对象
+            var aside = $(".aside_nav"); //右侧导航
+            var win = $(window); //得到窗口对象
+            var sc = $(document); //得到document文档对象。
+            win.scroll(function () {
+                if (sc.scrollTop() >= 625) {
+                    nav.addClass("fixed_tab");
+                    aside.addClass("fixed_aside");
+                } else {
+                    nav.removeClass("fixed_tab");
+                    aside.removeClass("fixed_aside");
+                }
+            });
+
+            win.scroll(function () {
+                if (sc.scrollTop() >= 60 && sc.scrollTop() < 625) {
+                    $("#top").addClass("fixed_nav");
+                } else {
+                    $("#top").removeClass("fixed_nav");
+                }
+            });
+            win.scroll(function(){
+                if(sc.scrollTop() >= 8500){
+                    aside.removeClass("fixed_aside")
+                }
+            });
+            //介绍区域右侧导航
+            $("#iteminfo .right p").click(function () {
+                //$(this).addClass("clic").siblings().removeClass("clic");
+                $(this).css("background-color", "#997679").siblings().css("background-color", "#e8e8e8");
+                $(this).find("a").css("color", "#fff").parent().siblings().find("a").css("color",
+                    "#828282")
+            });
+
+            /**数量添加**/
+            var n = $("#buy-num").val() * 1;
+            $(".numberMinus").click(function () {
+                if (n > 1) {
+                    $("#buy-num").val(n -= 1);
+                }
+            });
+            $(".numberAdd").click(function () {
+                $("#buy-num").val(n += 1);
+            });
+
+            /**ajax提交**/
+            //规格选择
+            function speChoose() {
+                $(this).click(function (norms) {
+                    $(this).addClass("borderChange");
+                    if ($(this).siblings().addClass("borderChange")) {
+                        $(this).siblings().removeClass("borderChange")
+                    }
+                    //规格选择
+                    var norms = $(this).html();
+                })
+            }
+            //颜色选择
+            function colorChoose() {
+                $(this).click(function () {
+                    $(this).addClass("borderChange");
+                    if ($(this).siblings().addClass("borderChange")) {
+                        $(this).siblings().removeClass("borderChange")
+                    }
+                    var color = $(this).val();
+                })
+            }
+
+            //数量选择
+            // $(".accountChose").click(function () {
+            //     var buyAccount = $("#buy-num").val();
+            //     console.log(buyAccount);
+            // })
+
+            /*立即购买*/
+            $("#buy_now").click(function (e) {
+                //如果未选择，请选择商品信息
+                // if (color == undefined && norms == undefined) {
+                //     //            $("#add_cart").text("加入购物车").css({"background":"#f5f5f5","color":"#000"})
+                //     alert("请选择商品信息");
+                // } else {
+                //     location.href = "cart.html";
+                // }
+                // e.preventDefault();
+                // var color = $("#choose_color input .borderChange").val();
+                // var model = $("#choose_model span .borderChange").html();
+                // var num = $("#buy-num").val();
+
+                // console.log()
+                // console.log(color)
+                // console.log(model)
+                // console.log(num)
+
+                e.preventDefault();
+                pro = getPro();
+                color = pro['color'];
+                norms = pro['norms'];
+                buyAccount = pro['buyAccount'];
+                //如果未选择，请选择商品信息
+                if (!color || !norms || buyAccount <= 0) {
+                    alert("请选择宝贝的参数信息");
+                } else {
+                    $.ajax({
+                        type: "post",
+                        url: baseUrl + "/cart/addcart",
+                        data: {
+                            goodsid: goodid,
+                            colorid: color,
+                            sperid: norms,
+                            amount: buyAccount
+                        },
+                        success: function (data) {
+                            var result = JSON.parse(data);
+                            console.log(result);
+                            if (result.result) {
+                                var itemIds = [{
+                                    id: result.data,
+                                    amount: buyAccount
+                                }];
+                                localStorage.setItem('itemIds', JSON.stringify(itemIds));
+                                window.location.href = 'orderConfirm.html';
+                            } else if (!result.result) {
+                                alert(result.error);
+                            } else {
+                                alert("您还没登录呢！");
+                                window.location.href = data;
+                            }
+                        },
+                        error: function (data) {
+                            console.log(data)
+                            //  alert("系统异常！");
+                            //  window.location.reload()
+                        }
+                    });
+
+
+                }
+
+
+                // 后台需要的参数
+                // var url = '/toOrder/'+${item.id}+'.html?&num='+num+'&itemColor='+color+'&itemModel='+model;
+                //             window.location.href = url;
+            });
+
+
+            //懒加载
+            window.onload = function () {
+                const observer = lozad();
+                observer.observe();
+            };
+
+
+            //页面请求刷新
+        {#    $.ajax({#}
+        {#        type: 'get',#}
+        {#        url: baseUrl + '/memberapp/goodetail',#}
+        {#        data: {#}
+        {#            goodid: goodid#}
+        {#        },#}
+        {#        success: function (response) {#}
+        {#            var result = JSON.parse(response);#}
+        {#            console.log(result);#}
+        {#            var promise = JSON.parse(result.data.promise)#}
+        {#            var type = {#}
+        {#                1: '旅行箱',#}
+        {#                2: '背包',#}
+        {#                3: '手提包'#}
+        {#            };#}
+        {#            $('#mImg').attr('src', baseUrl + '/images' + result.data.bigimg[0]);#}
+        {#            // var img = $("#icon_list").find('img')#}
+        {#            // img[0].src = baseUrl + '/images' + result.data.smallimg[0]#}
+        {#            // img[1].src = baseUrl + '/images' + result.data.smallimg[1]#}
+        {#            // img[2].src = baseUrl + '/images' + result.data.smallimg[2]#}
+        {#            // img[3].src = baseUrl + '/images' + result.data.smallimg[3]#}
+        {##}
+        {##}
+        {#            var smallHTML = '';#}
+        {#            for (var key in result.data.smallimg) {#}
+        {#                smallHTML +=#}
+        {#                    `#}
+        {#                    <li class="i1"><img src="${baseUrl + '/images' + result.data.smallimg[key]}" /></li>#}
+        {#                `#}
+        {#            }#}
+        {#            $("#icon_list").html(smallHTML);#}
+        {##}
+        {#            //大图更换#}
+        {#            $('#icon_list>li').click(function () {#}
+        {#                $(this).children('img').css('border', '1px solid #CECFCE');#}
+        {#                var address = $(this).children().attr('src');#}
+        {#                var newaddress = address.slice(0, -4);#}
+        {#                var bigaddress = newaddress + 'big.jpg';#}
+        {#                $('#mImg').attr('src', bigaddress);#}
+        {#                $(this).siblings().children('img').css('border', '');#}
+        {#            });#}
+        {##}
+        {##}
+        {#            $('.right_detail').children('h1').html(result.data.title);#}
+        {#            $('.right_detail').children('h3').html(result.data.desc);#}
+        {#            $('#pro_price').children('span').html(result.data.price);#}
+        {#            if (promise.length) {#}
+        {#                var promise_html = '<b>服务承诺：</b>';#}
+        {#                promise.forEach(el => {#}
+        {#                    promise_html += `<span>*${el.fields.title}&nbsp;</span>`#}
+        {#                });#}
+        {#                $('.promise').html(promise_html)#}
+        {##}
+        {#            }#}
+        {#            #}
+        {##}
+        {#            $('#nav_detail').html(#}
+        {#                '<h5><a href="index.html"> 首页</a>  >  <a href="product_list.html?typeid=' +#}
+        {#                $.getUrlParam("typeid") + '">' + type[$.getUrlParam("typeid")] + '</a>' +#}
+        {#                '  >  ' + result.data.title);#}
+        {##}
+        {##}
+        {##}
+        {#            var color = '<s class="color">颜色：</s>';#}
+        {#            result.data.colorlist.forEach(el => {#}
+        {#                color += "<input type='button' class='i1' value='" + el.color +#}
+        {#                    "' title='" + el.color + "'  data-id= '" + el.id + "' />"#}
+        {#            });#}
+        {#            var spe = '<s>规格：</s>';#}
+        {#            result.data.spelist.forEach(el => {#}
+        {#                console.log(el);#}
+        {#                spe += '<span class="avenge" data-id="' + el.id + '">' + el.specifice +#}
+        {#                    '</span>'#}
+        {#            });#}
+        {#            $('#choose_color').html(color).next().html(spe)#}
+        {#            //事件绑定#}
+        {##}
+        {#        },#}
+        {#        error: function (err) {#}
+        {#            alert('设置失败 ' + err)#}
+        {#        }#}
+        {#    }).then(() => {#}
+        {#        $("#choose_color input").each(colorChoose);#}
+        {#        $(".avenge").each(speChoose);#}
+        {##}
+        {#        /**选择商品进行添加 悬停效果**/#}
+        {#        $(".avenge").mouseover(function () {#}
+        {#            $(this).css({#}
+        {#                "border": "1px solid #997679",#}
+        {#                "color": "#997679"#}
+        {#            });#}
+        {#        }).mouseout(function () {#}
+        {#            $(this).css({#}
+        {#                "border": "1px solid #666",#}
+        {#                "color": "#666"#}
+        {#            })#}
+        {#        })#}
+        {#    })#}
+        {##}
+        //})
+    </script>
+    <!--图片效果-->
+    <!-- <script>
+        $("#mImg").hover(function (){
+            $(this).addClass("animated pulse");
+        }, function (){
+            $(this).removeClass("animated pulse");
+        });
+    </script> -->
+
+</body>
+
+</html>

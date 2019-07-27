@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>收货地址管理</title>
+</head>
+
+<body>
+    <h1>收货地址管理</h1>
+    <form method="post" action="/address/add">
+        {% csrf_token %}
+        <!-- 收货人姓名 -->
+        <div>
+            <span>*</span><span>收货人：</span><input type="text" name="consignee" id="receiverName" />
+        </div>
+        <!-- 收货人所在城市等信息 -->
+        <div>
+            <span>*</span><span>省&nbsp;&nbsp;份：</span><select data-province="---- 选择省 ----" id="receiverState"></select>
+            城市：<select data-city="---- 选择市 ----" id="receiverCity"></select>
+            区/县：<select data-district="---- 选择区 ----" id="receiverDistrict"></select>
+        </div>
+
+        <!-- 收货人详细地址 -->
+        <div>
+            <span>*</span><span>详细地址：</span><textarea name="address" cols="60" rows="3"
+                placeholder="建议您如实填写详细收货地址"></textarea>
+        </div>
+        <!-- 收货人地址 -->
+        <div>
+            <span>*</span><span>手机号码：</span><input type="tel" name="mobile" />
+        </div>
+        <!-- 邮政编码 -->
+        <div>
+            <span>&nbsp;</span><span>邮政编码：</span>&nbsp;<input type="text" name="zipcode" />
+        </div>
+        <!-- 地址名称 -->
+        <div>
+            <span>&nbsp;</span><span>地址名称：</span>&nbsp;<input type="text" name="alias" />如：<span> 家 </span><span> 公司
+            </span><span> 宿舍 </span>
+        </div>
+        <!-- 保存收货人信息 -->
+        <div>
+            <input type="submit" value="保存收货人信息" />
+        </div>
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>皮爷の箱包馆</title>
+    {% endblock %}
+    <!--本页面所有资源路径为本地相对路径
+        使用服务器打开页面请将/static/改为 ../
+        如 href="../css/index.css"
+        index.js中src路径同样需要修改
+    -->
+    {% block link %}
+    <link href="/static/css/index.css" rel="Stylesheet" />
+    <link href="/static/css/animate.css" rel="Stylesheet" />
+    <link rel="stylesheet" href="/static/css/slide.css" />
+    <link rel="icon" href="/static/images/index/py.ico">
+
+    {% endblock %}
+    <script src="/static/js/init.js"></script>
+</head>
+
+<body>
+    <header id='header'>
+	<div id="top">
+    <div id="logo" class="lf">
+        <a href="/index.html">
+            <img class="animated jello" src="/static/images/header/logo.png" alt="logo" />
+        </a>
+    </div>
+    <div id="top_input" class="lf">
+        <input id="input" type="text" placeholder="请输入您要搜索的内容" />
+        <a href="#" class="rt" ><img id="search" src="/static/images/header/search.png" alt="搜索" /></a>
+    </div>
+    <div class="rt">
+        <ul class="lf">
+            <li><a href="#" title="我的收藏"><img class="care" src="/static/images/header/care.png" alt="" /></a><b>|</b></li>
+            <li><a href="#" title="我的订单"><img class="order" src="/static/images/header/order.png" alt="" /></a><b>|</b></li>
+            <li><a href="#" title="我的购物车"><img class="shopcar" src="/static/images/header/shop_car.png" alt="" /></a><b>|</b></li>
+            <li><a href="#">帮助</a><b>|</b></li>
+            <li id ='my_login'><a href="#" >登录</a></li>
+        </ul>
+    </div>
+</div>
+<!-- nav主导航 -->
+<nav id="nav">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">私人定制</a></li>
+    </ul>
+</nav>
+	</header>
+    <!-- banner部分-->
+{% block headbody %}
+{% endblock %}
+    <div class="ck-slide">
+        {% block footbody %}
+        <ul class="ck-slide-wrapper">
+            <li>
+                <a href="/goods/list/3"><img src="/static/images/index/index_banner1.jpg" alt=""></a>
+            </li>
+            <li style="display:none">
+                <a href="/goods/list/1"><img src="/static/images/index/index_banner2.jpg" alt=""></a>
+            </li>
+            <li style="display:none">
+                <a href="/goods/list/3"><img src="/static/images/index/index_banner3.jpg" alt=""></a>
+            </li>
+            <li style="display:none">
+                <a href="/goods/list/1"><img src="/static/images/index/index_banner4.jpg" alt=""></a>
+            </li>
+            <li style="display:none">
+                <a href="/goods/list/2"><img src="/static/images/index/index_banner5.jpg" alt=""></a>
+            </li>
+        </ul>
+        <a href="javascript:;" class="ctrl-slide ck-prev">上一张</a> <a href="javascript:;" class="ctrl-slide ck-next">下一张</a>
+        <div class="ck-slidebox">
+            <div class="slideWrap">
+                <ul class="dot-wrap">
+                    <li class="current"><em>1</em></li>
+                    <li><em>2</em></li>
+                    <li><em>3</em></li>
+                    <li><em>4</em></li>
+                    <li><em>5</em></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 特推部分-->
+    <div id="product">
+        <div class="product_1 lf">
+            <div class="aside lf">
+                <a href="product_details.html?typeid=2&goodid=958">
+                    <img id="aside_image" src="/static/images/index/index_Sbanner_img1.png" alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="product_2 lf">
+
+            <div class="aside lf">
+                <a href="product_details.html?typeid=3&goodid=976">
+                    <img id="aside_image2" src="/static/images/index/index_Sbanner_img2.png" alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="product_3 lf">
+            <div class="aside lf">
+                <a href="product_details.html?typeid=1&goodid=942">
+                    <img id="aside_image3" src="/static/images/index/index_Sbanner_img3.png" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- welcome部分-->
+    <div id="welcome">
+    </div>
+    <!-- 背包-->
+    <div class="study">
+        <p>背包
+            <span data_url="2" class="product_more">更多>></span>
+        </p>
+        <div class="study_left lf">
+            <div class="product_parameters_main">
+                <p>U'REVO</p>
+                <h3 class="product_name_main">活力学院休闲双肩包</h3>
+
+                <h3 class="product_preferential_main">
+                    限时特惠
+                    <b class="product_price_main">￥6688.00</b>
+                </h3>
+
+                <p class="view_details"><a href="product_details.html?typeid=2&goodid=957">查看详情</a></p>
+            </div>
+            <img class="study_product_main bp1" src="/static/images/index/index_bp1.png" alt="" />
+        </div>
+        <div class="study_right rt">
+            <div class="right_top">
+                <div class="product_parameters_vice1">
+                    <h3 class="product_name_vice1">Grinder 牛津休闲双肩包</h3>
+
+                    <h3 class="product_preferential_vice1"><b class="product_price_vice1">￥6688.00</b></h3>
+
+                    <p class="view_details"><a href="product_details.html?typeid=2&goodid=956">查看详情</a></p>
+                </div>
+                <img class="study_product_vice1 bp2" src="/static/images/index/index_bp2.png" alt="" />
+            </div>
+            <div class="right_bottom">
+                <div class="product_parameters_vice2">
+                    <h3 class="product_name_vice2">90分户外休闲双肩包</h3>
+
+                    <h3 class="product_preferential_vice2"><b class="product_price_vice2">￥68.00</b></h3>
+
+                    <p class="view_details"><a href="product_details.html?typeid=2&goodid=958">查看详情</a></p>
+                    <img class="study_product_vice2 bp3" src="/static/images/index/index_Sbanner_img1.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 拉杆箱-->
+    <div class="study">
+        <p>拉杆箱
+            <span data_url="1" class="product_more">更多>></span>
+        </p>
+        <div class="study_left lf">
+            <div class="product_parameters_main">
+                <p>90分旅行箱 1A</p>
+                <h3 class="product_name_main">与你走向更远的的地方</h3>
+
+                <h3 class="product_preferential_main">限时特惠<b class="product_price_main">￥6688.00</b></h3>
+
+                <p class="view_details"><a href="product_details.html?typeid=1&goodid=942">查看详情</a></p>
+            </div>
+            <img class="study_product_main bp1" src="/static/images/index/index_Sbanner_img3.png" alt="" />
+        </div>
+        <div class="study_right rt">
+            <div class="right_top">
+                <div class="product_parameters_vice1">
+                    <h3 class="product_name_vice1">与爱箱随 一路精彩</h3>
+
+                    <h3 class="product_preferential_vice1">
+                        <b class="product_price_vice1">￥6688.00</b>
+                    </h3>
+
+                    <p class="view_details"><a href="product_details.html?typeid=1&goodid=947">查看详情</a></p>
+                </div>
+                <img style="width:100px;right:50px;" class="study_product_vice1 bp2" src="/static/images/index/index_trunk1.png"
+                    alt="" />
+            </div>
+            <div class="right_bottom">
+                <div class="product_parameters_vice2">
+                    <h3 class="product_name_vice2">让美好旅行触手可及</h3>
+
+                    <h3 class="product_preferential_vice2">
+                        <b class="product_price_vice2">￥68.00</b>
+                    </h3>
+
+                    <p class="view_details"><a href="product_details.html?typeid=1&goodid=945">查看详情</a></p>
+                    <img style="height:150px;" class="study_product_vice2 bp3" src="/static/images/index/index_trunk2.png"
+                        alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 手提包 -->
+    <div class="study">
+        <p>手提包
+            <span data_url="3" class="product_more">更多>></span>
+        </p>
+        <div class="study_left lf">
+            <div class="product_parameters_main">
+                <p>时尚都市菱格双肩包</p>
+                <h3 class="product_name_main">经典百搭 时尚优雅</h3>
+
+                <h3 class="product_preferential_main">限时特惠<b class="product_price_main">￥6688.00</b></h3>
+
+                <p class="view_details"><a href="product_details.html?typeid=3&goodid=974">查看详情</a></p>
+            </div>
+            <img class="study_product_main bp1" src="/static/images/index/index_hb1.png" alt="" />
+        </div>
+        <div class="study_right rt">
+            <div class="right_top">
+                <div class="product_parameters_vice1">
+                    <h3 class="product_name_vice1">CARRY'O 轻奢级牛皮水桶包</h3>
+
+                    <h3 class="product_preferential_vice1"><b class="product_price_vice1">￥6688.00</b></h3>
+
+                    <p class="view_details"><a href="product_details.html?typeid=3&goodid=976">查看详情</a></p>
+                </div>
+                <img style="top:50px;" class="study_product_vice1 bp2" src="/static/images/index/index_Sbanner_img2.png" alt="" />
+            </div>
+            <div class="right_bottom">
+                <div class="product_parameters_vice2">
+                    <h3 class="product_name_vice2">英伦复古轻奢级马鞍包</h3>
+
+                    <h3 class="product_preferential_vice2"><b class="product_price_vice2">￥68.00</b></h3>
+
+                    <p class="view_details"><a href="product_details.html?typeid=3&goodid=975">查看详情</a></p>
+                    <img style="width:150px;left:160px;top:10px;" class="study_product_vice2 bp3" src="/static/images/index/index_hb2.png"
+                        alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <footer id='footer'>
+	<div id="foot_box">
+    <div class="icon1 lf">
+        <img src="/static/images/footer/icon1.png" alt=""/>
+        <h3>品质保障</h3>
+    </div>
+    <div class="icon2 lf">
+        <img src="/static/images/footer/icon2.png" alt=""/>
+        <h3>私人定制</h3>
+    </div>
+    <div class="icon3 lf">
+        <img src="/static/images/footer/icon3.png" alt=""/>
+        <h3>皮粉特供</h3>
+    </div>
+    <div class="icon4 lf">
+        <img src="/static/images/footer/icon4.png" alt=""/>
+        <h3>专属特权</h3>
+    </div>
+</div>
+<!-- 页面底部-->
+<div class="foot_bj">
+    <div id="foot">
+        <div class="lf">
+            <p class="footer1"><img src="/static/images/footer/logo.png" alt="" class=" footLogo"/></p>
+            <p class="footer2"><img src="/static/images/footer/footerFont.png" alt=""/></p>
+        </div>
+        <!-- <div class="foot_left lf" >
+            <ul>
+                <li><a href="#"><h3>买家帮助</h3></a></li>
+                <li><a href="#">新手指南</a></li>
+                <li><a href="#">服务保障</a></li>
+                <li><a href="#">常见问题</a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><h3>商家帮助</h3></a></li>
+                <li><a href="#">商家入驻</a></li>
+                <li><a href="#">商家后台</a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><h3>关于我们</h3></a></li>
+                <li><a href="#">关于皮爷</a></li>
+                <li><a href="#">联系我们</a></li>
+                <li>
+                    <img src="../images/footer/wechat.png" alt=""/>
+                    <img src="../images/footer/sinablog.png" alt=""/>
+                </li>
+            </ul>
+        </div> -->
+        <div class="service">
+            <p>皮爷の商城客户端</p>
+            <img src="/static/images/footer/ios.png" class="lf">
+            <img src="/static/images/footer/android.png" alt="" class="lf"/>
+        </div>
+        <div class="download">
+            <img src="/static/images/footer/erweima.png">
+        </div>
+		<!-- 页面底部-备案号 #footer -->
+        <div class="record">
+            &copy;2018 皮爷の集团有限公司 版权所有 京ICP证xxxxxxxxxxx
+        </div>
+    </div>
+</div>
+	</footer>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/index.js"></script>
+	<!--header-->
+	<script>
+    var loginName = sessionStorage['loginName']
+    console.log(loginName)
+    if (loginName){
+        $('#my_login').children().html(loginName).on('click',(e)=>{
+            e.preventDefault()
+            $.ajax({
+                type : 'get',
+                url :baseUrl +'/user/logout/',
+                success:function (response) {
+                    var result = JSON.parse(response)
+                    console.log(result)
+                    if(result.result){
+                        sessionStorage.removeItem('loginName')
+                        alert('退出登录')
+                        window.location.reload()
+                        $('#my_login').children().html('登录')
+                    }else{
+                        window.location.reload()
+                    }
+                },
+                error:function(err){
+                    console.log(err)
+                }
+            })
+
+        })
+    }
+
+
+</script>
+    <script src="/static/js/slide.js"></script>
+    <script>
+        $('.ck-slide').ckSlide({
+            autoPlay: true, //默认为不自动播放，需要时请以此设置
+            dir: 'x', //默认效果淡隐淡出，x为水平移动，y 为垂直滚动
+            interval: 4000 //默认间隔2000毫秒
+        });
+        //搜索页面跳转
+        $("#search").click(function () {
+            window.location.href = "search.html";
+        });
+        //跳转到商品列表页面
+        $("#welcome").click(() => {
+            window.location.href = "product_list.html";
+        })
+    </script>
+
+</body>
+</html>

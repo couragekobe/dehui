@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加详细信息</title>
+	<link rel="stylesheet" href="/static/css/sale/basesale.css">
+	<link rel="stylesheet" href="/static/css/sale/mod_goods3.css">
+</head>
+<body>
+	<!--整体-->
+	<div id="container">
+		<!--1.顶部-->
+		<div id="top">
+			<!--顶部logo-->
+			<div id="top-logo">
+				<a href="">
+					<img src="/static/images/footer/logo.png">
+				</a>
+			</div>
+			<!--顶部导航-->
+			<div id="top-nav">
+				<ul>
+					<li>
+						<a href="{% url 'new_goods' %}">上传商品</a><b>|</b>
+
+						<a href="{% url 'new_shelves' %}">商品上架</a><b>|</b>
+
+						<a href="{% url 'closed_shelves' %}">商品下架</a><b>|</b>
+
+						<a href="{% url 'login' %}">商家登录</a><b>|</b>
+
+						<a href="{% url 'info' %}">用户信息</a><b>|</b>
+
+						<a href="{% url 'logout' %}">注销登陆</a>
+					</li>
+				</ul>
+			</div>		
+		</div>
+		<!--2.导航-->
+		<div id="nav">
+			<ul>
+				<li>
+					<a href="#">添加商品图片</a>
+				</li>
+				<li>
+					<a href="/goods/detail/{{ goods.id }}">预览商品详情</a>
+				</li>
+			</ul>	
+		</div>
+
+		<!--3、主体部分-->
+		<div id="main">
+			<table></table>
+            <div id="header">
+                <span><b>增加详细信息，修改详细信息</b></span>
+            </div>
+            <!--分类信息 -->
+			<div id="body" class="">
+				<form action="{% url 'mod_title' %}"  method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div id="" class="content">
+						<span>商品名称：</span>
+						<input type="text" name="new_title" value="{{ goods.title }}">
+					</div>
+
+					<div id="" class="content">
+						<span>商品简介：</span>
+						<input type="text" name="new_desc" value="{{ goods.desc }}">
+					</div>
+
+
+					<div id="" class="content">
+						<span>自定义商品规格：</span>
+						<input type="text" name="new_spec_name" value="{{ goods.spec_name }}">
+
+					</div>
+					<div class="content">
+						<input class="on" type="submit" value="确认修改">
+
+					</div>
+				</form>
+				<hr>
+
+
+
+
+
+				<form action="{% url 'mod_images' %}" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+					<div id="" class="content">
+						<span>商品首图：</span>
+						<img src="/static/images/goods/{{goods.id}}/{{head_img}}">
+						<a href="/sale/goods/del_img/{{ head_img }}"><input class="on" type="button" value="删除"></a>
+					</div>
+					<div id="" class="content">
+						<span>商品图上传：</span>
+
+						<input type="file" name="goods_img" id="goods_img">
+					</div>
+
+					<div id="" class="content">
+						<span>商品详情图上传：</span>
+						<input type="file" name="detail_img" id="goods_img">
+						<input class="on" type="submit" value="添加商品图">
+					</div>
+				</form>
+				<hr>
+
+				<h2>商品产品图</h2>
+				<div id="" class="">
+
+					<form action="/sale/goods/insert_img/" method="post" enctype="multipart/form-data">
+
+						<div id="" class="content">
+							<span>商品产品图：</span>
+							{% for i in img_list %}
+							{% if forloop.first%}
+							{% else %}
+								{% csrf_token %}
+							<input type="hidden" name="img_title" value="{{i}}">
+							<img src="/static/images/goods/{{goods.id}}/{{i}}">
+
+							<a href="/sale/goods/del_img/{{ i }}"><input class="on" type="button" value="删除"></a>
+
+						</div>
+						<div id="" class="content">
+							<span>商品图片上传：</span>
+							<input type="file" name="insert_img">
+							<input class="on" type="submit" value="插入图片">
+						</div>
+					</form>
+					<form action="/sale/goods/mod_goods_img" method="post" enctype="multipart/form-data">
+
+						{% csrf_token %}
+
+						<div id="" class="content">
+							<span>商品图片更改：</span>
+							<input type="hidden" name="img_title" value="{{i}}">
+							<input type="file" name="set_img">
+
+							<input class="on" type="submit" value="修改图片">
+
+						</div>
+					</form>
+					{% endif %}
+					{% endfor %}
+				</div>
+
+					<hr>
+				<h2>商品详情图</h2>
+				{% for s in detail_list %}
+				<form action="/sale/goods/insert_detail_img/" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div id="" class="content">
+						<span>商品详情图：</span>
+
+						<img src="/static/images/goods/{{goods.id}}/details/{{s}}">
+						<a href="/sale/goods/del_detail_img/{{ s }}"><input class="on" type="button" value="删除"></a>
+					</div>
+					<div id="" class="content">
+						<span>商品详情图：</span>
+						<input type="hidden" name="detail_title" value="{{s}}">
+						<input type="file" name="insert_detail_img" id="goods_img">
+						<input class="on" type="submit" value="插入图片">
+					</div>
+				</form>
+				<form action="/sale/goods/mod_detail_img" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+					<div id="" class="content">
+						<span>商品图片更改：</span>
+						<input type="hidden" name="deatil_title" value="{{s}}">
+						<input type="file" name="set_detail_img">
+						<input class="on" type="submit" value="修改图片">
+
+					</div>
+				</form>
+					{% endfor %}
+<hr>
+
+				{% for gd in goodgui %}
+				<form action="/sale/goods/mod_price/" method="post">
+					{% csrf_token %}
+					<div id="" class="content">
+						<input type="hidden" name="gds_id" value="{{ gd.id }}">
+						<span>商品{{ goods.spec_name }}：</span>
+						<input type="text" name="new_spec_info" value="{{ gd.spec_info }}">
+					</div>
+					<div id="" class="content">
+						<span>商品价格：</span>
+						<input type="text" name="new_price" value="{{ gd.price }}">
+					</div>
+					<div id="" class="content">
+						<span>商品库存：</span>
+						<input type="text" name="new_stock" value="{{ gd.stock }}">
+					</div>
+					<div id="" class="content">
+						<a href="/sale/goods/del_gui/{{ gd.id }}/"><input class="on" type="button" value="删除规格"></a>
+					</div>
+					<div id="" class="content">
+						<input class="on" type="submit" value="确认修改">
+					</div>
+					<hr>
+				</form>
+
+				{% endfor %}
+				<form action="/sale/goods/new_price/" method="post">
+					{% csrf_token %}
+					<div id="" class="content">
+						<span>新商品{{ goods.spec_name }}：</span>
+						<input type="text" name="spec_info">
+				</div>
+				<div id="" class="content">
+					<span>新商品价格：</span>
+					<input type="text" name="price">
+				</div>
+				<div id="" class="content">
+					<span>新商品库存：</span>
+					<input type="text" name="stock">
+				</div>
+
+				<div id="" class="content">
+					<input class="on" id="save" type="submit" value="添加商品规格">
+				</div>
+				</form>
+			</div>
+		</div>
+		<!--4.底部页面-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->		
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>		
+	</div>
+ </body>
+</html>
+
+
+
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加详细信息</title>
+
+	<link rel="stylesheet" href="/static/css/sale/basesale.css">
+	<link rel="stylesheet" href="/static/css/sale/mod_goods3.css">
+
+</head>
+<body>
+	<!--整体-->
+	<div id="container">
+		<!--1.顶部-->
+		<div id="top">
+			<!--顶部logo-->
+			<div id="top-logo">
+				<a href="">
+					<img src="/static/images/footer/logo.png">
+				</a>
+			</div>
+			<!--顶部导航-->
+			<div id="top-nav">
+				<ul>
+					<li>
+						<a href="{% url 'new_goods' %}">上传商品</a><b>|</b>
+
+						<a href="{% url 'new_shelves' %}">商品上架</a><b>|</b>
+
+						<a href="{% url 'closed_shelves' %}">商品下架</a><b>|</b>
+
+						<a href="{% url 'login' %}">商家登录</a><b>|</b>
+
+						<a href="{% url 'info' %}">用户信息</a><b>|</b>
+
+						<a href="{% url 'logout' %}">注销登陆</a>
+					</li>
+				</ul>
+			</div>		
+		</div>
+		<!--2.导航-->
+		<div id="nav">
+			<ul>
+				<li>
+					<a href="#">添加商品图片</a>
+				</li>
+				<li>
+					<a href="/goods/detail/{{ goods.id }}">预览商品详情</a>
+				</li>
+			</ul>	
+		</div>
+
+		<!--3、主体部分-->
+		<div id="main">
+			<table></table>
+            <div id="header">
+                <span><b>增加详细信息，修改详细信息</b></span>
+            </div>
+            <!--分类信息 -->
+			<div id="body" class="">
+				<form action="{% url 'mod_title' %}"  method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div id="" class="content">
+						<span>商品名称：</span>
+						<input type="text" name="new_title" value="{{ goods.title }}">
+					</div>
+
+					<div id="" class="content">
+						<span>商品简介：</span>
+						<input type="text" name="new_desc" value="{{ goods.desc }}">
+					</div>
+
+
+					<div id="" class="content">
+						<span>自定义商品规格：</span>
+						<input type="text" name="new_spec_name" value="{{ goods.spec_name }}">
+
+					</div>
+					<div class="content">
+						<input class="on" type="submit" value="确认修改">
+
+					</div>
+				</form>
+				<hr>
+
+
+
+
+
+				<form action="{% url 'mod_images' %}" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+					<div id="" class="content">
+						<span>商品首图：</span>
+						<img src="/static/images/goods/{{goods.id}}/{{head_img}}">
+						<a href="/sale/goods/del_img/{{ head_img }}"><input class="on" type="button" value="删除"></a>
+					</div>
+					<div id="" class="content">
+						<span>商品图上传：</span>
+
+						<input type="file" name="goods_img" id="goods_img">
+					</div>
+
+					<div id="" class="content">
+						<span>商品详情图上传：</span>
+						<input type="file" name="detail_img" id="goods_img">
+						<input class="on" type="submit" value="添加商品图">
+					</div>
+				</form>
+				<hr>
+
+				<h2>商品产品图</h2>
+				<div id="" class="">
+
+					<form action="/sale/goods/insert_img/" method="post" enctype="multipart/form-data">
+
+						<div id="" class="content">
+							<span>商品产品图：</span>
+							{% for i in img_list %}
+							{% if forloop.first%}
+							{% else %}
+								{% csrf_token %}
+							<input type="hidden" name="img_title" value="{{i}}">
+							<img src="/static/images/goods/{{goods.id}}/{{i}}">
+
+							<a href="/sale/goods/del_img/{{ i }}"><input class="on" type="button" value="删除"></a>
+
+						</div>
+						<div id="" class="content">
+							<span>商品图片上传：</span>
+							<input type="file" name="insert_img">
+							<input class="on" type="submit" value="插入图片">
+						</div>
+					</form>
+					<form action="/sale/goods/mod_goods_img/" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div id="" class="content">
+							<span>商品图片更改：</span>
+							<input type="hidden" name="img_title" value="{{i}}">
+							<input type="file" name="set_img">
+							<input class="on" type="submit" value="修改图片">
+
+						</div>
+					</form>
+					{% endif %}
+					{% endfor %}
+				</div>
+
+					<hr>
+				<h2>商品详情图</h2>
+				{% for s in detail_list %}
+				<form action="/sale/goods/insert_detail_img/" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div id="" class="content">
+						<span>商品详情图：</span>
+
+						<img src="/static/images/goods/{{goods.id}}/details/{{s}}">
+						<a href="/sale/goods/del_detail_img/{{ s }}"><input class="on" type="button" value="删除"></a>
+					</div>
+					<div id="" class="content">
+						<span>商品详情图：</span>
+						<input type="hidden" name="detail_title" value="{{s}}">
+						<input type="file" name="insert_detail_img" id="goods_img">
+						<input class="on" type="submit" value="插入图片">
+					</div>
+				</form>
+				<form action="/sale/goods/mod_detail_img/" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+					<div id="" class="content">
+						<span>商品图片更改：</span>
+						<input type="hidden" name="deatil_title" value="{{s}}">
+						<input type="file" name="set_detail_img">
+						<input class="on" type="submit" value="修改图片">
+
+					</div>
+				</form>
+					{% endfor %}
+<hr>
+
+				{% for gd in goodgui %}
+				<form action="/sale/goods/mod_price/" method="post">
+					{% csrf_token %}
+					<div id="" class="content">
+						<input type="hidden" name="gds_id" value="{{ gd.id }}">
+						<span>商品{{ goods.spec_name }}：</span>
+						<input type="text" name="new_spec_info" value="{{ gd.spec_info }}">
+					</div>
+					<div id="" class="content">
+						<span>商品价格：</span>
+						<input type="text" name="new_price" value="{{ gd.price }}">
+					</div>
+					<div id="" class="content">
+						<span>商品库存：</span>
+						<input type="text" name="new_stock" value="{{ gd.stock }}">
+					</div>
+					<div id="" class="content">
+						<a href="/sale/goods/del_gui/{{ gd.id }}/"><input class="on" type="button" value="删除规格"></a>
+					</div>
+					<div id="" class="content">
+						<input class="on" type="submit" value="确认修改">
+					</div>
+					<hr>
+				</form>
+
+				{% endfor %}
+				<form action="/sale/goods/new_price/" method="post">
+					{% csrf_token %}
+					<div id="" class="content">
+						<span>新商品{{ goods.spec_name }}：</span>
+						<input type="text" name="spec_info">
+				</div>
+				<div id="" class="content">
+					<span>新商品价格：</span>
+					<input type="text" name="price">
+				</div>
+				<div id="" class="content">
+					<span>新商品库存：</span>
+					<input type="text" name="stock">
+				</div>
+
+				<div id="" class="content">
+					<input class="on" id="save" type="submit" value="添加商品规格">
+				</div>
+				</form>
+			</div>
+		</div>
+		<!--4.底部页面-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->		
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>		
+	</div>
+ </body>
+</html>
+
+
+
+>>>>>>> b87fdb8dad7c0ff89a91c5772fae9d5522a3dd34
+   

@@ -1,0 +1,72 @@
+/* 顶部 */
+#top{
+	margin-top:50px;
+}
+#top-logo,#top-nav{
+	float:left;
+}
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+#top-nav{
+	position:relative;
+	left:128px;
+	top:10px;
+	font-size:20px;
+}
+#top-nav b{
+	margin-left:12px;
+}
+
+div:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+/*2.导航*/
+ #nav{
+	margin:20px 10px; 
+	font-size:18px;
+}
+#nav li{
+	float:left;
+	margin-right:20px;
+}
+#nav li a {
+	color:#ccc;
+}
+
+/*3.主体部分*/
+#main{
+	clear:left;
+	width:750px;
+	margin-left:150px;
+	margin-top:50px;
+	background:#ccc;
+}
+#header{
+	font-size:20px;
+	padding:20px 30px 10px;
+	background:#997679;
+}
+#body div.content{
+	font-size:18px;
+	padding-left:118px;
+	margin-top:30px;
+}
+
+ #body .content #save{
+	position:relative;
+	width:150px;
+	height:50px;
+	border-radius:3px;
+	margin:20px auto 30px 10px;;
+	border:none;
+	background:#997679;
+}
+
+#body .content #save:active{
+	color:#696969;
+}
+ 

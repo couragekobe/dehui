@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% block title %}
+<title>皮爷の收藏夹</title>
+{% endblock %}
+{% block link %}
+<link href="../../css/favorite/favorite_list.css" rel="Stylesheet" />
+{% endblock %}
+{% block headbody %}
+    {% if not ms %}
+    <div id="clear">
+        <a href="/favorite/clear_all">清空收藏</a>
+    </div>
+    {% endif %}
+    <table id="headlist">
+        <tbody>
+            <td>商品图片</td>
+            <td>商品名称</td>
+            <td>商品描述</td>
+            <td>商品价格</td>
+            <td>选择操作</td>
+            <td>选择操作</td>
+        </tbody>
+    </table>
+
+{% endblock %}
+{% block footbody %}
+    <table id="list">
+        {% if ms %}
+            <div class="none_tip1">
+                <span class="lf">您的收藏夹竟然还是空哒( ⊙ o ⊙ )赶快去收藏商品吧！</span>
+            </div>
+            <br>
+            <div class="none_tip2">
+                <a href="/index.html" id="la">去购物>></a>
+            </div>
+        {% else %}
+            {% for item in favorites %}
+            <tbody>
+                <td><img src="{{ item.head_image }}" width="45pix" height="40px"> </td>
+                <td>{{item.spec.goods.title}}</td>
+                <td>{{item.spec.spec_info}}</td>
+                <td>{{item.spec.price}}</td>
+                <td><a href="/favorite/delete/{{item.id}}/">删除</a></td>
+                <td><a href="/cart/add/{{ item.spec.id }}/1/">加入购物车</a></td>
+            </tbody>
+        {% endfor %}
+        {% endif %}
+    </table>
+{% endblock %}

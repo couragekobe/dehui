@@ -1,0 +1,41 @@
+/* 顶部 */
+#top{
+	margin-top:50px;
+}
+/* 顶部logo */
+#top #top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+/* 顶部导航 */
+#top-nav{
+	position:relative;
+	left:288px;
+	bottom:30px;
+	font:normal normal 24px Arial; 
+}
+#top-nav b{
+	margin-left:12px;
+}
+/* 主体 */
+#main{
+	height:200px;
+	margin-top:80px;
+	display:flex;
+	justify-content:space-around;
+}
+
+.title_count p.title{
+	font-size:13px;
+	height:38px;
+	line-height:38px;
+	color:#73879C;
+}
+
+.title_count p.title img{
+	vertical-align:middle;
+}
+
+.title_count >span{
+	font:normal normal bold 40px Arial;
+}

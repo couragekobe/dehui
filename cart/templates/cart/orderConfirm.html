@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>确认订单-皮爷の商城</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link href="/static/css/orderConfirm.css" rel="Stylesheet" />
+    <link href="/static/css/personage.css" rel="Stylesheet" />
+    <link rel="icon" href="/static/images/index/py.ico">
+    <script src="/static/js/init.js"></script>
+
+</head>
+
+<body>
+    <!-- 页面顶部-->
+    <header id="header"></header>
+    <div id="navlist">
+        <ul>
+            <li class="navlist_blue_left"></li>
+            <li class="navlist_blue">确认订单信息</li>
+            <li class="navlist_blue_arro"><canvas id="canvas_blue" width="20" height="38"></canvas>
+            </li>
+            <li class="navlist_gray">支付订单<b></b></li>
+            <li class="navlist_gray_arro"><canvas id="canvas_gray" width="20" height="38"></canvas>
+            </li>
+            <li class="navlist_gray">支付完成<b></b></li>
+            <li class="navlist_gray_right"></li>
+        </ul>
+    </div>
+    <!--订单确认-->
+    <div id="container" class="clear">
+        <!--收货地址-->
+        <div class="adress_choice">
+            <p>收货人信息<span class="rt" id="choose">新增收货地址</span></p>
+            {% for address in address_a %}
+                <div id="addresId1" class="base_select">
+                    <i class="address_name">
+                        {{ address.consignee }}
+                    </i>
+                    <i class="user_address">
+                        {{ address.address }} {{ address.mobile }}
+                    </i>
+                    <i class="user_site rt">
+                        设为默认地址
+                    </i>
+                </div>
+            {% endfor %}
+            <a id="more" href="javascript:void(0);">
+                更多地址 &gt;&gt;
+            </a>
+        </div>
+        <!-- 商品信息-->
+        <form method="post" action="/order/pay/{{ order.id }}">
+            {% csrf_token %}
+            <div class="product_confirm">
+                <p>确认商品信息</p>
+                <ul class="item_title">
+                    <li class="p_info">商品信息</li>
+                    <li class="p_price">单价(元)</li>
+                    <li class="p_count">数量</li>
+                    <li class="p_tPrice">金额</li>
+                    <input type="hidden" name="orderid" value="{{ order.id }}">
+                </ul>
+                {% for item_set in settlement_list %}
+                <ul class="item_detail">
+                    <li class="p_info">
+                        <b class="product_name lf">
+                            {{item_set.goods_spec.goods.title}}
+                        </b>
+                        <img src="{{item_set.head_image}}" class="lf" width="55pix" height="50px" style="margin-left: 15px"/>
+                        <span class="product_color">
+                            {{ item_set.goods_spec.spec_info }}
+                        </span>
+                    </li>
+                    <li class="p_price">
+                        <i>皮粉专属价</i>
+                        <br />
+                        <span class="pro_price"><span class="ppp_price">￥{{ item_set.goods_spec.price }}</span></span>
+                    </li>
+                    <li class="p_count"><span> X{{ item_set.cunt }} </span></li>
+                    <li class="p_tPrice">￥{{ item_set.t_price }}<span></span></li>
+                </ul>
+                {% endfor %}
+            </div>
+        <!-- 结算条-->
+        <div id="count_bar">
+            <span class="go_cart"><a href="/cart/">&lt;&lt;返回购物车</a></span>
+            <span class="count_bar_info"><b id="count">数量:{{ order.amount }} </b><b class="zj">总额:{{ order.real_money }} </b> <input type="hidden"
+                    name="Payment" value="" /></span>
+            <span class="go_pay"><a href="/order/pay/{{ order.id }}">确认付款</a></span>
+        </div>
+        </form>
+    </div>
+    <!--标题栏-->
+    <div class="modal" style="display:none">
+        <!--收货人信息填写栏-->
+        <div class="rs_content rs_content_1">
+            <p class="cha">×</p>
+            <form method="post" action="">
+                <!--收货人姓名-->
+                <div class="recipients">
+                    <span class="red">*</span><span class="kuan">收货人：</span><input type="text" name="receiverName" id="receiverName" />
+                </div>
+                <!--收货人所在城市等信息-->
+                <div data-toggle="distpicker" class="address_content">
+                    <span class="red">*</span><span class="kuan">省&nbsp;&nbsp;份：</span><select data-province="---- 选择省 ----"
+                        id="receiverState"></select>
+                    城市：<select data-city="---- 选择市 ----" id="receiverCity"></select>
+                    区/县：<select data-district="---- 选择区 ----" id="receiverDistrict"></select>
+                </div>
+                <!--收货人详细地址-->
+                <div class="address_particular">
+                    <span class="red">*</span><span class="kuan">详细地址：</span><textarea name="receiverAddress" id="receiverAddress"
+                        cols="60" rows="3" placeholder="建议您如实填写详细收货地址"></textarea>
+                </div>
+                <!--收货人地址-->
+                <div class="address_tel">
+                    <span class="red">*</span><span class="kuan">手机号码：</span><input type="tel" id="receiverMobile" name="receiverMobile" />固定电话：<input
+                        type="text" name="receiverPhone" id="receiverPhone" />
+                </div>
+                <!--邮政编码-->
+                <div class="address_postcode">
+                    <span class="red">&nbsp;</span class="kuan"><span>邮政编码：</span>&nbsp;<input type="text" name="receiverZip" />
+                </div>
+                <!--地址名称-->
+                <div class="address_name">
+                    <span class="red">&nbsp;</span class="kuan"><span>地址名称：</span>&nbsp;<input type="text" id="addressName"
+                        name="addressName" />如：<span class="sp">家</span><span class="sp">公司</span><span class="sp">宿舍</span>
+                </div>
+                <!--保存收货人信息-->
+                <div class="save_recipient">
+                    保存收货人信息
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <footer id="footer"></footer>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/index.js"></script>
+{#    <script src="/static/js/distpicker.data.js"></script>#}
+{#    <script src="/static/js/distpicker.js"></script>#}
+{#    <!-- 画布script -->#}
+{#    <script>#}
+{#        //顶部支付订单背景画布#}
+{#        var canvas = document.getElementById("canvas_gray");#}
+{#        var cxt = canvas.getContext("2d");#}
+{#        var gray = cxt.createLinearGradient(10, 0, 10, 38);#}
+{#        gray.addColorStop(0, '#f5f4f5');#}
+{#        gray.addColorStop(1, '#e6e6e5');#}
+{#        cxt.beginPath();#}
+{#        cxt.fillStyle = gray;#}
+{#        cxt.moveTo(20, 19);#}
+{#        cxt.lineTo(0, 38);#}
+{#        cxt.lineTo(0, 0);#}
+{#        cxt.fill();#}
+{#        cxt.closePath();#}
+{#        //顶部确认订单信息背景画布#}
+{#        var canvas = document.getElementById("canvas_blue");#}
+{#        var cxt = canvas.getContext("2d");#}
+{#        var blue = cxt.createLinearGradient(10, 0, 10, 38);#}
+{#        blue.addColorStop(0, '#997679');#}
+{#        blue.addColorStop(1, '#997679');#}
+{#        cxt.beginPath();#}
+{#        cxt.fillStyle = blue;#}
+{#        cxt.moveTo(20, 19);#}
+{#        cxt.lineTo(0, 38);#}
+{#        cxt.lineTo(0, 0);#}
+{#        cxt.fill();#}
+{#        cxt.closePath();#}
+{#    </script>#}
+    <script>
+{#        //计算总价#}
+{#        function calculate() {#}
+{#            var html = 0;#}
+{#            var total = 0;#}
+{#            $(".item_detail").each(function () {#}
+{#                html += 1;#}
+{#                var p = parseFloat($(this).children('.p_price').children('.pro_price').children(#}
+{#                    '.ppp_price').html());#}
+{#                var sl = parseFloat($(this).children('.p_count').children('span').html());#}
+{#                var xj = parseFloat(p * sl).toFixed(2);#}
+{#                $(this).children('.p_tPrice').children('span').html(xj);#}
+{#                total += xj - 0;#}
+{#            })#}
+{#            var pay = total >= 99 ? total : total + 10#}
+{#            $("#count").html(html) - 0;#}
+{#            $('.zj').html(pay.toFixed(2)) - 0;#}
+{#            var input_zj = parseFloat($('.zj').html()).toFixed(2);#}
+{#            $('#payment').val(input_zj);#}
+{#            return {#}
+{#                total: total.toFixed(2),#}
+{#                pay: pay#}
+{#            }#}
+{#        }#}
+{#        // //设置默认地址#}
+{#        // function defads(this) {#}
+{#        //     var my_this = $(this)#}
+{#        //     $.ajax({#}
+{#        //         type: 'post',#}
+{#        //         url: baseUrl + '/user/defads',#}
+{#        //         datatype: JSON,#}
+{#        //         data: {#}
+{#        //             adid: my_this.parent().attr("data-id")#}
+{#        //         },#}
+{#        //         success: function (response) {#}
+{#        //             var result = JSON.parse(response)#}
+{#        //             if (result.result) {#}
+{#        //                 my_this.parent().attr("class", "base_select").siblings().attr(#}
+{#        //                     "class", "base");#}
+{#        //                 my_this.hide();#}
+{#        //             }#}
+{#        //         },#}
+{#        //         error: function (err) {#}
+{#        //             console.log(err)#}
+{#        //         }#}
+{#        //     })#}
+{#        // }#}
+{#        //更多点击事件#}
+        function more() {
+            //控制新增收货地址框的显示隐藏
+            $("#choose").click(function () {
+                $(".modal").show();
+            })
+            $(".cha").click(function () {
+                $(".modal").hide();
+            })
+            $(".base_select").show().siblings().hide();
+            //点击显示更多地址事件
+            $("#more").click(function () {
+                if ($(this).hasClass("upup")) {
+                    $(".base_select").siblings().hide();
+                    // $(".allAdd_content>div:not(:first-child)").css("display","none");
+                    $("#more").html("更多地址>>");
+                    $(this).removeClass("upup");
+                } else {
+                    $(".base_select").siblings().show();
+                    // $(".allAdd_content>div:not(:first-child)").css("display","block");
+                    $("#more").html("收起地址>>");
+                    $("#more").addClass("upup");
+                }
+            })
+            $(document).on("mouseover", ".base", function () {
+                $(this).find("i:eq(2)").show();
+            })
+            $(document).on("mouseout", ".base", function () {
+                $(this).find("i:eq(2)").hide();
+            })
+            $(".user_site").click(function () {
+                $(this).parent().attr("class", "base_select").siblings().attr("class", "base");
+                $(this).hide();
+            })
+            //地址页面添加名称至输入框
+            $(".sp").click(function () {
+                var value = $(this).html();
+                $("#addressName").val(value);
+            })
+            $('.save_recipient').click(function () {
+                addads()
+            })
+
+        }
+        //新增收货地址
+        function addads() {
+            var receiverName = $("#receiverName").val(); // 收件人
+            var receiverState = $("#receiverState").val(); // 省
+            var receiverCity = $("#receiverCity").val(); // 市
+            var receiverDistrict = $("#receiverDistrict").val(); // 区/县
+            var receiverAddress = $("#receiverAddress").val(); //
+            var receiverMobile = $("#receiverMobile").val();
+            var receiverZip = $("#receiverZip").val() ? $("#receiverZip").val() : null;
+            var addressName = $("#addressName").val();
+
+            if (receiverName && receiverState && receiverCity && receiverDistrict && receiverAddress && receiverMobile) {
+                console.log(1)
+                $.ajax({
+                    type: 'post',
+                    url: baseUrl + '/user/addads',
+                    datatype: JSON,
+                    data: {
+                        "consignee": receiverName,
+                        "ads": receiverState + receiverCity + receiverDistrict + receiverAddress,
+                        "mobile": receiverMobile,
+                        'zipcode': receiverZip,
+                        'alias': addressName
+                    },
+                    success: function (response) {
+                        var result = JSON.parse(response)
+                        console.log(result)
+                        if (result.result){
+                            var data = JSON.parse(result.data);
+                            console.log(data)
+                            var addHTML = "";
+                            for (var item of data) {
+                                addHTML +=
+                                    `
+                            <div data-id="${item.pk}" class="${item.fields.defaultads?'base_select':'base'}">
+                                <i class="address_name">
+                                    ${item.fields.consignee}
+                                </i>
+                                <i class="user_address">
+                                    ${item.fields.ads} ${item.fields.mobile}
+                                </i>
+
+                                <i class="user_site rt">
+                                    选择该地址
+                                </i>
+                            </div>
+                        `
+                            }
+                            $(".allAdd_content").html(addHTML);
+                            window.location.reload()
+
+                        }else{
+                            console.log(result.data)
+                            alert(result.error)
+                            window.location.reload()
+                        }
+                    },
+                    error: function (err) {
+                        alert('保存失败' + err)
+                    }
+                })
+            } else {
+                alert("请将必填信息填写完整");
+            }
+        }
+{#        //异步加载收货人信息#}
+{#        function address() {#}
+{#            $.ajax({#}
+{#                type: 'get',#}
+{#                url: baseUrl + '/user/adslst',#}
+{#                datatype: JSON,#}
+{#                success: function (response) {#}
+{#                    var data = JSON.parse(JSON.parse(response).data);#}
+{#                    var addHTML = "";#}
+{#                    for (var item of data) {#}
+{#                        addHTML +=#}
+{#                            `#}
+{#                        <div data-id="${item.pk}" class="${item.fields.defaultads?'base_select':'base'}">#}
+{#                            <i class="address_name">#}
+{#                                ${item.fields.consignee}#}
+{#                            </i>#}
+{#                            <i class="user_address">#}
+{#                                ${item.fields.ads} ${item.fields.mobile}#}
+{#                            </i>#}
+{##}
+{#                            <i class="user_site rt">#}
+{#                                选择该地址#}
+{#                            </i>#}
+{#                        </div>#}
+{#                    `#}
+{#                    }#}
+{#                    $(".allAdd_content").html(addHTML);#}
+{#                },#}
+{#                error: function (err) {#}
+{#                    console.log(err)#}
+{#                }#}
+{#            }).then(() => {#}
+{#                more()#}
+{#            })#}
+{#        }#}
+{#        //商品信息异步加载#}
+{#        function goods() {#}
+{#            var goodsID = []#}
+{#            var goods = {}#}
+{#            var itemIds = JSON.parse(localStorage.getItem('itemIds'))#}
+{#            var itemId = []  #}
+{#            itemIds.forEach(el => {#}
+{#                goodsID.push(el.id)#}
+{#                goods[el.id] = el.amount#}
+{#            });#}
+{#            $.ajax({#}
+{#                type: 'get',#}
+{#                url: baseUrl + '/order/ordergoods',#}
+{#                datatype: JSON,#}
+{#                traditional: true,#}
+{#                data: {#}
+{#                    cartids: goodsID#}
+{#                },#}
+{#                success: function (response) {#}
+{#                    var result = JSON.parse(response)#}
+{#                    var addHTML =#}
+{#                        `<p>确认商品信息</p>#}
+{#                            <ul class="item_title">#}
+{#                                <li class="p_info">商品信息</li>#}
+{#                                <li class="p_price">单价(元)</li>#}
+{#                                <li class="p_count">数量</li>#}
+{#                                <li class="p_tPrice">金额</li>#}
+{#                            </ul>`;#}
+{#                    for (var item of result.data) {#}
+{#                        addHTML +=#}
+{#                            `#}
+{#                           <ul class="item_detail">#}
+{#                                <li class="p_info">#}
+{#                                    <div><img src="${baseUrl+item.img} " /></div>#}
+{##}
+{#                                    <b class="product_name lf">#}
+{#                                        ${item.title}${item.desc}#}
+{#                                    </b>#}
+{#                                    <br />#}
+{#                                    <span class="product_color ">#}
+{#                                        颜色：${item.color}#}
+{#                                    </span>#}
+{#                                    <span class="product_color ">#}
+{#                                        规格：${item.spec}#}
+{#                                    </span>#}
+{#                                </li>#}
+{#                                <li class="p_price">#}
+{#                                    <i>皮粉专属价</i>#}
+{#                                    <br />#}
+{#                                    <span class="pro_price">￥<span class="ppp_price">${item.price}</span></span>#}
+{#                                </li>#}
+{#                                <li class="p_count">X<span>${goods[item.cartid]}</span></li>#}
+{#                                <li class="p_tPrice">￥<span></span></li>#}
+{#                            </ul>#}
+{#                            `#}
+{#                        itemIds.forEach(el => {#}
+{#                            if (el.id == item.cartid) {#}
+{#                                itemId.push({#}
+{#                                    id : el.id,#}
+{#                                    amount : el.amount,#}
+{#                                    price : el.amount * item.price#}
+{#                                })#}
+{#                            }#}
+{#                        });#}
+{#                    }#}
+{#                    $(".product_confirm").html(addHTML);#}
+{##}
+{#                },#}
+{#                error: function (err) {#}
+{#                    console.log(err)#}
+{#                }#}
+{#            }).then(() => {#}
+{#                var total = calculate()#}
+{#                var addId = $(".base_select").attr('data-id')#}
+{#                //页面跳转#}
+{#                $(".go_pay").click(function () {#}
+{#                    console.log(itemId)#}
+{#                    $.ajax({#}
+{#                        type: 'post',#}
+{#                        url: baseUrl + '/order/addorder',#}
+{#                        datatype: JSON,#}
+{#                        traditional: true,#}
+{#                        data: {#}
+{#                            adsid: addId,#}
+{#                            goods: JSON.stringify(itemId),#}
+{#                            tprice: total.total,#}
+{#                            trmoney: total.pay,#}
+{#                        },#}
+{#                        success: function (response) {#}
+{#                            var result = JSON.parse(response)#}
+{#                            if(result.result){#}
+{#                                location.href = "payment.html?orderID="+result.data;#}
+{#                            }#}
+{#                        },#}
+{#                        error: function (err) {#}
+{#                            console.log(err)#}
+{#                        }#}
+{#                    })#}
+{#                })#}
+{##}
+{#            })#}
+{#        }#}
+{#        window.onload = function () {#}
+{#            address()#}
+{#            goods()#}
+{##}
+{##}
+{#        }#}
+    </script>
+
+</body>
+
+</html>

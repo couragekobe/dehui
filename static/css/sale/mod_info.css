@@ -1,0 +1,71 @@
+/* 顶部 */
+#top{
+	margin-top:50px;
+}
+
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+
+/*2.导航*/
+#nav{	
+ 	margin:20px 10px; 
+ 	font-size:18px;
+ }
+ #nav li{
+ 	float:left;
+ 	margin-right:20px;
+ }
+ #nav li a {
+ 	color:#ccc;
+ }
+
+
+/* 3.主体部分 */
+
+#main{
+	clear:left;
+	width:758px;
+	margin-left:150px;
+	margin-top:80px;
+	background:#ccc;
+} 
+#header{
+	font-size:20px;
+	padding:20px 30px 10px;
+	background:#997679;
+}
+#main #body .content{
+	padding-left:118px;
+	margin-top:30px;
+	font-size:18px;
+}
+ #main #body .content input{
+	width:318px;
+	height:36px;
+	border:none;
+	border-radius:8px;
+}
+#main #body .content #modify{
+	position:relative;
+	width:150px;
+	height:50px;
+	border:none;
+	border-radius:3px;
+	margin:20px auto 30px 80px;
+	background:#997679;
+	
+} 
+#main #body .content input#modify:active{
+	color:#696969;
+}
+
+
+
+
+
+
+
+
+

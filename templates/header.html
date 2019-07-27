@@ -1,0 +1,32 @@
+<!-- 网页头部 -->
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<div id="top">
+    <div id="logo" class="lf">
+        <a href="/index.html">
+            <img class="animated jello" src="/images/header/logo.png" alt="logo" />
+        </a>
+    </div>
+    <div id="top_input" class="lf">
+        <input id="input" type="text" placeholder="请输入您要搜索的内容" />
+        <a href="#" class="rt" ><img id="search" src="/images/header/search.png" alt="搜索" /></a>
+    </div>
+    <div class="rt">
+        <ul class="lf">
+            <li><a href="/favorite" title="我的收藏"><img class="care" src="/images/header/care.png" alt="" /></a><b>|</b></li>
+            <li><a href="/order" title="我的订单"><img class="order" src="/images/header/order.png" alt="" /></a><b>|</b></li>
+            <li><a href="/cart" title="我的购物车"><img class="shopcar" src="/images/header/shop_car.png" alt="" /></a><b>|</b></li>
+            <li><a href="lookforward.html">帮助</a><b>|</b></li>
+            {% if request.user.id %}
+            <li id ='my_login'><a href="/user/" >{{request.user.username}}</a></li>
+            <li id ='my_login'><a href="/user/logout.html" >注销</a></li>
+            {% else %}
+            <li id ='my_login'><a href="/user/login.html?next=/" >登录</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>

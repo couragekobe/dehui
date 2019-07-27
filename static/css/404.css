@@ -1,0 +1,74 @@
+/*错误信息*/
+#container{
+    width:1000px;
+    min-height: 300px;
+    margin: 0px auto;
+}
+/*错误信息显示*/
+#container .sys_err{
+    float:right;
+    height:90px;
+    margin-right:260px;
+    margin-top:79px;
+    color:#333;
+}
+#container .sys_err >img{
+    float:left;
+    padding:50px 20px 0 66px;
+}
+#container .sys_err >p{
+    padding:15px 15px 0 5px;
+    font-family: simhei;
+    margin-top:62px;
+    margin-bottom:5px;
+    width:488px;
+}
+#container .sys_err >p,#container .sys_err >p >span{
+    color:#333;
+    font-size:16px;
+}
+.rt{float: right}
+#container .sys_err a{
+    color:#0aa1ed;
+}
+#container .sys_err a:hover{
+    color:#0aa1ed;
+}
+
+/*为你推荐*/
+#recommended{
+    height: 270px;
+    width:1000px;
+    overflow: hidden;
+    margin:38px auto 0;
+}
+#recommended p{
+    font-size: 24px;
+    font-weight: bold;
+    color:#333333;
+    margin-bottom: 15px;
+}
+#recommended p span{
+    width: 150px;
+    height: 20px;
+    background-color: #333333;
+    color:#f0f0f0;
+    margin-left: 20px;
+    font-size: 14px;
+    padding: 2px 5px;
+}
+#demo1,#demo2{
+    width: 1000px;
+    text-align: center;
+}
+#demo1 div,#demo2 div{
+    width:24%;
+}
+#demo1 p,#demo2 p{
+    color:#333333;
+    font-size: 12px;
+    margin-top: 10px;
+}
+#demo1 .detail_img1,#demo2 .detail_img1{
+    margin-left: 40px;
+}

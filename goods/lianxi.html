@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+hah
+<script>
+    var b=4;
+    function outer(){
+        var b=2;
+        function inner(){
+            b++;
+//            console.log(b) NAN
+            var b=3;
+            console.log(b)
+
+        }
+        inner();
+//        console.log(b) 2
+   }
+    outer();
+    console.log(b)
+
+</script>
+</body>
+</html>

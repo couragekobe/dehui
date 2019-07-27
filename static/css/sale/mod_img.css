@@ -1,0 +1,52 @@
+
+#top{
+	top:50px;
+}
+
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+
+#nav{
+	margin:20px 50px;
+	font-size:18px;
+}
+#nav a {
+ 	color:#ccc;
+ }
+
+
+
+ #nav li a {
+ 	color:#ccc;
+ }
+
+ #main{
+	width:758px;
+	margin:50px 150px auto;
+	background:#ccc;	
+}
+#main h2{
+	font-size:20px;
+	background:#937171;
+	padding:20px 30px 10px;
+}
+
+#main p{
+	font-size:18px;
+	border:none;
+	margin-top:50px;
+	padding-bottom:50px;
+	padding-left:38px;
+/* 	border-bottom:1px solid #e8e8e8;*/
+}
+
+#main input#sub{
+	width:150px;
+	height:50px;
+	border:none;
+	border-radius:3px;
+	margin:20px auto 30px 48px;
+	background:#997679;
+}

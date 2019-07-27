@@ -1,0 +1,203 @@
+@charset "utf-8";
+h1{
+    font-size:14px;
+    font-weight:bold;
+    font-family: simhei;
+    margin-bottom:11px;
+    border-bottom: 1px solid #bbb;
+    margin-top:22px;
+    padding-bottom: 6px;
+}
+.rt{
+    float:right;
+}
+.lf{
+    float:left;
+}
+.clear{
+    *zoom: 1;
+    width: 1000px;
+    margin: 0px auto;
+}
+.clear:after{ content: ""; display: block; height: 0; visibility:hidden; clear: both;}
+
+.clear>p{
+    margin-top: 10px;
+}
+#container .container_nav,#container .orderInfo_icon{
+    width:1000px;
+    height:38px;
+    line-height:38px;
+    margin: 10px auto;
+}
+/*订单状态流程图*/
+#container .orderInfo_icon{
+    border-radius: 2px;
+    background: -moz-linear-gradient(top, #f5f4f5 0%, #e6e6e5 100%);
+    background: -webkit-linear-gradient(top, #f5f4f5 0%,#e6e6e5 100%);
+    background: -o-linear-gradient(top, #f5f4f5 0%,#e6e6e5 100%);
+    background: -ms-linear-gradient(top, #f5f4f5 0%,#e6e6e5 100%);
+    box-shadow: 3px 3px 6px #ccc;
+}
+#container .orderInfo_icon>p{
+    margin-left: 10px;
+}
+#container #orderStatusChart{
+    height:166px;
+    width:1000px;
+    margin: 40px auto 0;
+
+}
+#container #orderStatusChart>dl{
+    float:left;
+    display: block;
+    padding-top:20px;
+    height:166px;
+    text-align: center;
+    margin:0 auto;
+
+}
+#container #orderStatusChart>dl dd{
+    width:96px;
+}
+#container #orderStatusChart>dl .point{
+    padding-top:25px;
+    font-size: 18px;
+}
+.logistics p{
+    margin: 8px 0  0 ;
+}
+.express{
+    margin-right: 8px;
+}
+.expressInfo{
+    padding-left: 60px
+}
+.logistics>div{
+    position: relative;
+}
+.logistics>div>span{
+    position: absolute;
+    top:5px;
+    left:0px;
+}
+.logistics>div>div{
+    display: inline-block;
+    margin-left: 0px;
+}
+#container #orderStatusChart>dl:nth-child(1){
+    margin-left: 107px;
+}
+.commodity{
+    border-bottom: none;
+}
+/*确认商品信息*/
+/*标题栏*/
+#container .product_confirm > p{
+    font-family:"microsoft yahei";
+    font-size:18px;
+    font-weight:bold;
+    padding-bottom:6px;
+    width:1000px;
+    color: #333;
+    margin: 32px auto 0;
+}
+#container .item_title{
+    width:998px;
+    height:27px;
+    margin: 0px auto;
+    padding-top:10px;
+    font-size: 12px;
+    font-weight:bold;
+    color:#888;
+    background: -moz-linear-gradient(top, #f5f4f5 0%, #e6e6e5 100%);
+    background: -webkit-linear-gradient(top, #f5f4f5 0%,#e6e6e5 100%);
+    background: -o-linear-gradient(top, #f5f4f5 0%,#e6e6e5 100%);
+    background: -ms-linear-gradient(top, #f5f4f5 0%,#e6e6e5 100%);
+    box-shadow: 3px 3px 6px #ccc;
+    border: 1px solid #e8e8e8;
+}
+#container .item_title >li{
+    height:29px;
+    float:left;
+    text-align:center;
+}
+.p_info{width:438px;}
+.p_price{width:199px;}
+.p_count{width:149px;}
+.p_tPrice{width:209px;}
+
+.item_title .p_info,
+.item_title .p_price,
+.item_title .p_count{
+    border-right: 1px solid #e8e8e8;
+}
+/*详情栏*/
+.item_detail .p_info,
+.item_detail .p_price,
+.item_detail .p_count{
+    border-right: 1px solid #f5f5f5;
+}
+#container .item_detail{
+    width:998px;
+    height:112px;
+    border:1px solid #fafafa;
+    background-color:#fff;
+    margin: 0px auto;
+    box-sizing: border-box;
+}
+
+#container .item_detail >li{
+    float:left;
+    vertical-align: middle;
+    height: 112px;
+    overflow: hidden;
+}
+#container .item_detail >li:not(:first-child){
+    text-align:center;
+    padding: 41px;
+    box-sizing: border-box;
+}
+#container .item_detail > .p_info{
+    width:438px;
+    height:102px;
+    margin-top:10px;
+}
+#container .item_detail > .p_info p{
+    margin-left: 20px;
+    margin-top: 14px;
+}
+#container .item_detail > .p_info>span{
+    margin-top: 10px;
+    margin-left: 10px
+}
+#container .item_detail > .p_info > b{
+    width: 80px;
+    height: 80px;
+    padding-left:16px;
+    overflow: hidden;
+    float:left;
+}
+#container .item_detail > .p_info > b >img{
+    width: 100%;
+    height: 100%;
+}
+#container .item_detail > .p_info > .product_name{
+    width:300px;
+}
+#container .item_detail > .p_info >  .product_color{
+    display: inline-block;
+    padding-left: 16px;
+}
+
+#container .item_detail > .p_price > i{
+    font-style: normal;
+
+}
+.product_confirm>div{
+    height:25px;
+    line-height: 25px;
+    background:#e8e8e8;
+    margin-top: 10px;
+    padding-left: 10px;
+}

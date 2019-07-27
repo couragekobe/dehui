@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>皮爷の箱包馆Details</title>
+    <link href="/css/index.css" rel="Stylesheet" />
+    <link href="/css/pro_details.css" rel="Stylesheet" />
+    <link href="/css/animate.css" rel="Stylesheet" />
+    <link rel="icon" href="/images/index/py.ico">
+    <script src="/js/init.js"></script>
+
+</head>
+
+<body>
+    <!-- 页面顶部-->
+    <header id='header'></header>
+
+    <!-- 内容-->
+    <!--细节导航-->
+    <div id="nav_detail">
+        <!-- <h5>首页 > 拉杆箱 > 90分旅行箱 1A</h5> -->
+        <h5>首页 > <a href="/goods/list/{{goods_type.id}}">{{goods_type.title}}</a>  > {{title}}</h5>
+    </div>
+    <!--产品预览-->
+    <div id="shop_detail">
+        <!-- 左侧-->
+        <div id="preview" class="lf">
+            <div id="mediumDiv">
+                 <img id="mImg" src="{{head_image}}" />
+            </div>
+            <div id="icon_all">
+                <ul id="icon_list">{% for img  in image_list %}
+                    <li class="i1"><img src="{{img}}" /></li>{% endfor %}
+
+                    <li class="i1"><img src="../../images/product_detail/product_detail_img1.jpg"></li>
+                    <li class="i1"><img src="../../images/product_detail/product_detail_img2.jpg" /></li>
+                    <li class="i1"><img src="../../images/product_detail/product_detail_img3.jpg" /></li>
+                    <li class="i1"><img src="../../images/product_detail/product_detail_img4.jpg" /></li>
+                    <li class="li"><img src="../../images/product_detail/product_detail_img5.jpg"/></li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- 右侧-->
+        <div class="right_detail lf">
+            <!-- 商品名称-->
+            <h1>{{title}}</h1>
+            <!--<h1></h1>-->
+            <!-- 商品全称-->
+            <h3>{{desc}}</h3>
+            <!-- <h3></h3>-->
+            <!-- 价格部分-->
+            <div class="price">
+                <div id="pro_price"><b>售价：</b><span>{{price}}</span></div>
+                <div class="promise">
+                    <b>服务承诺：</b>
+                    <span>*退货补运费</span>
+                    <span>*30天无忧退货</span>
+                    <span>*48小时快速退款</span>
+                    <span>*72小时发货</span>
+                </div>
+            </div>
+            <!-- 参数部分 客服-->
+            <p class="parameter">
+                <b>客服：</b>
+                <span class="connect">联系客服</span><img class="gif" src="/images/product_detail/kefuf.gif">
+            </p>
+            <!-- 规格-->
+            <div class="parameter choose_specs" id="choose_color">
+                {% if spec_name %}
+                <b >选择{{spec_name}}：</b>
+                <ul class="specs">
+                    {% for spec in goods_specs %}
+                        <li class="specs_name" {% if spec.is_select %}style="border-color: red" {% endif %}>
+                             <a style="color: #666" href="/goods/detail/{{a_goods.id}}/{{spec.id}}/">{{spec.spec_info}}</a>
+                        </li>
+                    <!-- <input type="button" class="i1" value="{{spec.spec_info}}" title="{{spec.spec_info}}" /> -->
+                    {% endfor %}
+                </ul>
+                {% endif%}
+            </div>
+
+            <!-- 未选择规格，颜色时状态-->
+            <div class="message"></div>
+            <!-- 数量-->
+            <p class="accountChose">
+                <s>数量：</s>
+                <button class="numberMinus">-</button>
+                <input type="text" value="1" class="number" id="buy-num"  readOnly>
+                <button class="numberAdd">+</button>
+            </p>
+            <!-- 购买部分-->
+            <div class="shops">
+                <a href="#" class="buy lf" id="buy_now">立即购买</a>
+                <a href="#" class="shop lf" id="add_cart"><img src="/images/product_detail/product_detail_img7.png"
+                        alt="" />加入购物车</a>
+                <a href="#" class="collection lf" id="collect"><span>收藏</span><img src="/images/product_detail/product_detail_img6.png"
+                        alt="" /></a>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--商品详情-->
+    <div id="iteminfo">
+        <div id="tab">
+            <div class="tab lf">
+                <div class="cat">
+                    <span class="active"><a href="">商品详情</a></span>
+                    <span><a href="lookforward.html">商品评价</a></span>
+                </div>
+            </div>
+             <div class="cart rt">
+                <img src="../../images/product_detail/product_detail_img9.png" alt="" />
+            </div>
+        </div>
+        <div class="left lf">
+            <div class="all">
+                <!--<p><img src="images_x/pin_logo.png" alt=""/></p>-->
+                <div id="parm">
+                <div id="specification_parameter">
+                    <p>
+                        规格参数
+                        <img src="/images/product_detail/product_detail_icon_1.png" alt="" class="ys5"/>
+                    </p>
+{#                    <img src="images_x/canshu.png" alt="" class="ys5"/>#}
+                </div>
+                <ul>
+                    <li><a href="#">商品名称：联想YOGA 710</a></li>
+                    <li><a href="#">系统：windows10</a></li>
+                    <li><a href="#">内存容量：8G</a></li>
+                    <li><a href="#">分辨率：全清高屏(1920*1080)</a></li>
+                    <li><a href="#">显卡型号：GT940M</a></li>
+                    <li><a href="#">处理器：Intel i7低功耗版</a></li>
+                    <li><a href="#">显存容量：2G</a></li>
+                    <li><a href="#">分类：清薄本</a></li>
+                    <li><a href="#">硬盘容量:256G固态</a></li>
+                </ul>
+            </div>
+                <div id="product_introduction">
+                    <p>商品介绍
+                        <img class="lozad" data-src="/images/product_detail/product_detail_icon_4.png" alt="" class="ys5"/>
+                    </p>
+                    {% for img in detail_list %}
+                    <!-- <img class="lozad" data-src="/images/product_detail/product_detail.jpg" alt="" /> -->
+                    <img src="/images/goods/{{a_goods.id}}/details/{{img}}" alt="商品信息图片" />
+                    {% endfor %}
+
+                </div>
+                <div id="sale_protection">
+                    <p>
+                        售后保障
+                        <img src="/images/product_detail/product_detail_icon_3.png" alt="" class="ys5" />
+                    </p>
+
+                    <div class="sale_content">
+                        <p class="paper" id="sale_protect">
+                            <img src="/images/product_detail/product_detail_img16.png" alt="" />
+                            正品保障
+                        </p>
+
+                        <p class="content">
+                            皮爷商城向您保证所售商品均为正品行货，皮爷自营商品开具机打发票或电子发票。
+                        </p>
+
+                        <p class="paper">
+                            <img src="/images/product_detail/product_detail_img16.png" alt="" />
+                            全国联保
+                        </p>
+
+                        <p class="content">
+                            凭质保证书及皮爷商城发票，可享受全国联保服务，与您亲临商场选购的商品享受相同的质量保证。皮爷商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！
+                            注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！
+                        </p>
+                    </div>
+                </div>
+                <div id="packing_list">
+                    <p>
+                        包装清单
+                        <img src="/images/product_detail/product_detail_icon_2.png" alt="" class="ys5" />
+                    </p>
+
+                    <p class="content">笔记本 x1 适配器 x1 电源线 x1 电池 x1 说明书（电子版）x1 备注：笔记本电脑的背面只会标注此电脑的系列，例如： XPS 13-9360 ，
+                        如果您需要核实此电脑的具体配置型号是否与皮爷页面相符，可电话咨询皮爷厂商：800-858-2969</p>
+                </div>
+            </div>
+        </div>
+        <div class="right rt">
+            <div class="aside_nav">
+                <!-- <p><i><img src="../images/product_detail/product_detail_icon_g_1.png" alt=""/></i><a href="#specification_parameter">规格参数</a></p> -->
+                <p><i><img src="/images/product_detail/product_detail_icon_t_1.png" alt="" /></i><a href="#product_introduction">商品介绍</a></p>
+                <p><i><img src="/images/product_detail/product_detail_icon_d_1.png" alt="" /></i><a href="#sale_protection">售后保障</a></p>
+                <p><i><img src="/images/product_detail/product_detail_icon_bao_1.png" alt="" /></i><a href="#sale_protect">包装清单</a></p>
+                <p><i><img src="/images/product_detail/product_detail_icon_up_1.png" alt="" /></i><a href="#">回到顶部</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面底部-->
+    <footer id='footer'></footer>
+    <div class="modal" style="display:none">
+        <div class="modal_dialog">
+            <div class="modal_header">
+                操作提醒
+            </div>
+            <div class="modal_information">
+                <img src="/images/model/model_img2.png" alt="" />
+                <span>是否将您的宝贝加入收藏夹</span>
+
+            </div>
+            <div class="yes"><span>确定</span></div>
+            <div class="no"><span>取消</span></div>
+        </div>
+    </div>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/lozad.js"></script>
+    <script src="/js/init.js"></script>
+
+</body>
+
+</html>

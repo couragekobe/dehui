@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <link rel="stylesheet" href="/static/css/administrator/manage_1.css">
+  <style>
+	
+  </style>
+ </head>
+ <body>
+	<div id="container">
+		<!--1.页面顶部-->
+		<div id="top">
+			<!--分为三列布局-->
+			<div id="top-logo">
+				<a href="administrators/managementHome">
+					<img src="/static/images/footer/logo.png">
+				</a>
+			</div>			
+			<div id="top-nav">
+				<ul>
+					<li>
+						<a href="#" class="a1">主页</a><b>|</b>
+										
+						<a href="/administrators/searchClassification">分类管理</a><b>|</b>
+
+                        <a href="/administrators/searchGoods">商品管理</a><b>|</b>
+
+						<a href="/administrators/increaseSaller">用户管理</a><b>|</b>
+
+                        <a href="/administrators/bannerManagement">首页管理</a>
+					</li>
+				</ul>
+			</div>
+			<div id="top-right">
+				<p>
+                    {% if Auser %}
+                        欢迎您:{{ Auser }}
+                    {% endif %}
+					<b>|</b>
+					<a href="/administrators/logout">
+						<img src="/static/images/header/exit.png" alt="退出">
+					</a>
+				</p>
+			</div>
+		</div>
+		<!--3.页面主体-->
+		<div id="main">
+				<h2>待审批上架产品</h2>
+				<hr>
+            <form action="/administrators/home/" method="post">
+            {% csrf_token %}
+				<table id="tal">
+                    <thead>
+                        <td>商品名称</td>
+                        <td>商品描述</td>
+                        <td>所属类型</td>
+                        <td>所属商家</td>
+                        <td>是否上架</td>
+                    </thead>
+                {% for good in addGoods %}
+                <tbody>
+                    <td><input type="hidden" name="{{ good.title }}" value="{{ good.title }}"> {{ good.title }}</td>
+                    <td>{{ good.desc }}</td>
+                    <td>{{ good.goods_type.title }}</td>
+                    <td>{{ good.saller }}</td>
+                    <td><input type="checkbox" name="{{ good.id }}add" value="true"></td>
+                </tbody>
+                {% endfor %}
+				</table>
+                <div>
+                    <input id="btn" type="submit" value="确认提交">
+                </div>
+			</form>
+		</div>
+		<!--4.页面底部-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->		
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>		
+	</div>	
+ </body>
+</html>

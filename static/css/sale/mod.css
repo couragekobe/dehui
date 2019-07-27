@@ -1,0 +1,81 @@
+/*顶部*/
+#top{
+	top:50px;
+}
+#top-logo,#top-nav{
+	float:left;
+}
+/* 顶部logo */
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+/* 顶部导航 */
+#top-nav{
+	position:relative;
+	left:128px;
+	top:10px;
+	font-size:20px;
+}
+#top-nav b{
+	margin-left:12px;
+}
+
+div:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+/*2.导航*/
+ #nav{
+	margin:20px 10px;
+	font-size:18px;
+}
+#nav li{
+	float:left;
+	margin-right:40px;
+}
+
+/* 主体部分 */
+#main{
+	width:758px;
+	background:#fff;
+	margin-top:80px;
+	margin-left:150px;
+}
+#main #header{
+	font-size:20px;
+	padding:20px 30px 10px;
+	background:#E7E7E6;
+}
+#body div.content{
+	font-size:18px;
+	margin-top:50px;
+	padding-bottom:50px;
+	padding-left:30px;
+	border-bottom:1px solid #e8e8e8;
+}
+#body div.content input{
+	width:168px;
+	height:28px;
+	border:1px solid #e8e8e8;
+}
+
+#body .content #goods_modify{
+	width:150px;
+	height:50px;
+	border:none;
+	border-radius:3px;
+	background:#997679;
+} 
+/* #body div#img_goods{
+	font-size:18px;
+	height:360px;
+	margin:50px 30px 0px;
+	border-bottom:1px solid #e8e8e8;
+} */
+#body div#img_goods #goods_img{
+	height:300px;
+	width:280px;
+} 

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品信息</title>
+	<link rel="stylesheet" href="/static/css/sale/basesale.css">
+	<link rel="stylesheet" href="/static/css/sale/mod.css">
+</head>
+<body>
+    <!--整体-->
+	<div id="container">
+		<!--1.顶部-->
+		<div id="top">
+			<!--顶部logo-->
+			<div id="top-logo">
+				<a href="">
+					<img src="/static/images/footer/logo.png">
+				</a>
+			</div>
+			<!--顶部导航-->
+			<div id="top-nav">
+				<ul>
+					<li>
+						<a href="{% url 'new_goods' %}">上传商品</a><b>|</b>
+					
+						<a href="{% url 'new_shelves' %}">商品上架</a><b>|</b>
+					
+						<a href="{% url 'closed_shelves' %}">商品下架</a><b>|</b>
+					
+						<a href="{% url 'login' %}">商家登录</a><b>|</b>
+
+						<a href="{% url 'info' %}">用户信息</a><b>|</b>
+					
+						<a href="{% url 'logout' %}">注销登陆</a>
+					</li>
+				</ul>
+			</div>			
+		</div>
+		<!--2.导航-->
+		<div id="nav">
+			<ul>
+				<li>
+					<a href="{% url 'index' %}">首页</a>
+				</li>
+
+			</ul>	
+		</div>
+		<!--主体部分-->
+		<div id="main">
+			<table></table>
+            <div id="header">
+                <span><b>商品信息</b></span>
+            </div>
+            <!--商品信息 -->
+            <div id="body">
+                <!--商品名称-->
+                <div class="content">
+                    <span class="sname">商品名称：</span>
+                    <input type="text" name="goods_name" value="" id="goods_name">
+                </div>
+                <!--商品价格-->
+                <div class="content">
+                    <span class="same">商品价格：</span>
+					<input type="text" name="goods_price" id="goods_price">
+                </div>   
+				 <!--商品简介-->
+                <div class="content">	
+					<span class="same">商品简介：</span>
+					<textarea type="text" cols="45" rows="8" placeholder="请输入商品描述" name="goods_describe" id="goods_describe"></textarea>					
+                </div> 
+				<!--商品图片-->
+                <div class="content" id="img_goods">
+					<span class="same">商品图片：</span>
+					<img src="/static/images/goods/qq.jpg" alt="商品展示" id="goods_img">
+                </div>
+                <!--提交按钮-->
+                <div class="content">
+                    <input id="goods_modify" type="button" value="修改商品">
+                </div>
+            </div>
+		</div>
+		<!--底部页面-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->		
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>		
+	</div>
+ </body>
+</html>

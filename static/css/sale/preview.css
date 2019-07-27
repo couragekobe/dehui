@@ -1,0 +1,52 @@
+
+#top{
+	margin-top:50px;
+}
+
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+
+/*2.����*/
+#nav{	
+ 	margin:20px 10px; 
+ 	font-size:18px;
+ }
+ #nav li a {
+ 	color:#ccc;
+ }
+
+
+/* ���岿�� */
+#main{
+	width:900px;
+	margin-left:100px;
+	margin-top:50px;
+}
+
+#main h1{
+	padding-left:30px;
+	font-size:20px;
+}
+#main table{
+	width:898px;
+	background:#fff;
+	text-align:center;
+}
+table td{
+	padding:10px;
+}
+table thead{
+	background:#ccc;
+	font-size:18px;
+/* 	color:#fff; */
+}
+table #list_img{
+	width:320px;
+	height:280px; 
+}
+table .big_img{
+	width:420px;
+	height:380px;
+}

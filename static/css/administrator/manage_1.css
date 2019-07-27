@@ -1,0 +1,182 @@
+/*页面基础样式*/
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+	margin:0;
+	padding:0;
+	border:0;
+	list-style:none;
+}
+body{
+	font: 12px  YouYuan , Arial, Helvetica, sans-serif,"simhei";
+    color: #666;
+    background-color: #f1f3f4;
+	padding-top:50px;
+}
+a{
+	color:#ccc;
+	text-decoration:none;
+}
+input:focus{
+	outline:none;
+}
+/* 外面容器样式 */
+#container{
+	width:1000px;
+	margin:0 auto;
+}
+/*顶部*/
+#top{
+	top:50px;
+}
+#top-logo,#top-nav{
+	float:left;
+}
+#top-right{
+	float:right;
+}
+/*顶部logo*/
+#top-logo img{
+	width:168px;
+	margin-top:20px;
+	border-radius:10px;
+}
+/*顶部导航*/
+#top-nav{
+	position:relative;	
+	font-size:24px;
+	margin:28px 128px;
+}
+#top-nav b{
+	margin-left:12px;
+	
+}
+#top-nav a:hover{
+	background:#696969;
+}
+#top-nav a:active{
+	background:rgb(41, 142, 255);
+}
+/*顶部图标*/
+#top-right{
+	clear:left;
+	margin-top:-60px;
+}
+#top-right img{
+	vertical-align:middle;
+	width:30px;
+	height:30px;
+	margin-bottom:10px;
+}
+#top-right b{
+	padding:15px 5px;
+	font-size:28px;
+}
+/*2.搜索*/
+#search{
+	clear:both;
+	margin-left:350px;
+	position:relative;
+}
+#search input{
+	width:340px;
+	height:36px;
+	border:1px solid #999;
+	border-radius:18px;
+	padding:0 10px;
+	background:#f5f5f5;
+}
+#search a{
+	position:relative;
+	top:15px;
+	right:44px;
+}
+#search img{
+	width:38px;
+	height:38px;
+}
+
+/*3.主体部分*/
+#main{
+	clear:both;	
+	margin:30px 170px auto;
+}
+#main{
+	width:760px;
+}
+
+table{
+	width:760px;
+	text-align:center;
+	background:#fff;
+}
+h2{
+	padding-top:80px;
+	margin-left:28px;
+}
+
+table td{
+	padding:10px;
+	width: 128px;
+}
+#tal thead{
+	background:#949494;
+	color:#fff;
+	font-size:18px;
+}
+input#btn{
+	width:90px;
+	height:30px;
+	border:0;
+	border-radius:8px;
+	margin-top: 20px;
+	margin-left:660px;
+	background:#AEAEAE;
+}
+#btn:active{
+	background:rgb(41, 142, 255);
+}
+
+/* 4. 页面底部 */
+#footer{
+	height:80px;
+	margin-top:50px;
+}
+#footer div{
+	float:left;
+	margin:0 95px;
+	text-align:center;
+}
+/* 5. 共用底部 */
+#bottom{
+	margin-top:30px;
+}
+.download{
+	float:right;
+}
+.download img{
+	width:100px;
+}
+.service{
+	float:right;
+	width:125px;
+	margin-right:10px;
+}
+.service p{
+	font-size:14px;
+	text-align:center;
+	margin-bottom:10px;
+	color:#333;
+}
+.service img:last-child{
+	margin-top:3px;
+}
+#bottom .proprietary{
+	font-size:16px;
+	text-align:center;
+}
+#footLogo{
+	width:168px;
+	border-radius:10px;
+}
+#footFont{
+	width:650px;
+}

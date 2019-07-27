@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品上传</title>
+	<link rel="stylesheet" href="/static/css/sale/basesale.css">
+	<link rel="stylesheet" href="/static/css/sale/new_goods.css">
+</head>
+<body>
+    <!--整体-->
+	<div id="container">
+		<!--1.顶部-->
+		<div id="top">
+			<!--顶部logo-->
+			<div id="top-logo">
+				<a href="{% url 'index' %}">
+					<img src="/static/images/footer/logo.png">
+				</a>
+			</div>
+			<!--顶部导航-->
+			<div id="top-nav">
+				<ul>
+					<li>
+						<a href="{% url 'new_goods' %}">上传商品</a><b>|</b>
+					
+						<a href="{% url 'new_shelves' %}">商品上架</a><b>|</b>
+					
+						<a href="{% url 'closed_shelves' %}">商品下架</a><b>|</b>
+					
+						<a href="{% url 'login' %}">商家登录</a><b>|</b>
+
+						<a href="{% url 'info' %}">用户信息</a><b>|</b>
+					
+						<a href="{% url 'logout' %}">注销登陆</a>
+					</li>
+				</ul>
+			</div>			
+		</div>
+		<!--2.导航-->
+		<div id="nav">
+			<ul>
+				<li>
+					<a href="{% url 'index' %}">首页</a>
+				</li>
+			</ul>	
+		</div>
+		<!--主体部分-->
+		<div id="main">
+			<table></table>
+            <div id="header">
+                <span><b>上传商品信息</b></span>
+            </div>
+            <!--商品信息 -->
+            <div id="body">
+                <!--商品名称-->
+				<form action="{% url 'new_goods' %}" enctype="multipart/form-data" method="post">
+					{% csrf_token %}
+				<div class="content">
+                    <span class="sname">选择商品类型：</span>
+                    <select name="gtype">
+						<option value="拉杆箱">拉杆箱</option>
+			  			<option value="手提包">手提包</option>
+			  			<option value="背包">背包</option>
+					</select>
+                </div>
+                <div class="content">
+                    <span class="sname">商品名称：</span>
+                    <input type="text" class="goods" name="title" value="" id="goods_name">
+                </div>
+				 <!--详情介绍-->
+                <div class="content">	
+					<span class="same">商品详情：</span>
+					<input type="text" name="desc" id="desc" class="goods">
+                </div>
+
+				<!--商品图片-->
+                <div class="content">
+					<span class="same">商品图片：</span>
+					<input type="file" name="goods_images" id="goods_img">
+                </div><!--商品详情图-->
+                <div class="content">
+					<span class="same">商品详情图片：</span>
+					<input type="file" name="detail_images" id="goods_img">
+                </div>
+				<!--商品规格-->
+                <div class="content">
+					<span class="same">商品规格名称：</span>
+					<input type="text" name="spec_name" id="desc" class="goods">
+                </div>
+				<div id="" class="content">
+					<span>商品规格：</span>
+					<input type="text" name="spec_info" class="goods">
+				</div>
+				<div id="" class="content">
+					<span>商品价格：</span>
+					<input type="text" name="price" class="goods">
+				</div>
+				<div id="" class="content">
+					<span>商品库存：</span>
+					<input type="text" name="stock" class="goods">
+				</div>
+                <!--提交按钮-->
+                <div class="content">
+                    <input id="goods_save" class="goods" type="submit" value="提交">
+                </div>
+				</form>
+            </div>
+		</div>
+		<!--底部页面-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->		
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>		
+	</div>
+ </body>
+</html>

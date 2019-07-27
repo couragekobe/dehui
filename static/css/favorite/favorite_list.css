@@ -1,0 +1,99 @@
+/*基础样式*/
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+	margin:0;
+	padding:0;
+	border:0;
+	list-style:none;
+}
+body{
+	font: 12px  YouYuan , Arial, Helvetica, sans-serif,"simhei";
+    color: #666;
+    background-color: #f1f3f4;
+	padding-top:50px;
+}
+a{
+	color:#666;
+	text-decoration:none;
+}
+input:focus{
+	outline:none;
+}
+/*页面主体部分*/
+hr{
+	clear:both;
+}
+table{
+	width:850px;
+	text-align:center;
+	background:#fff;
+	margin-top:5px;
+	margin-left: 95px;
+}
+h2>p{
+	float:right;
+	margin-right:620px;
+}
+table tbody td{
+	padding: 0px;
+	padding-bottom: 5px;
+    width: 100px;
+}
+table thead{
+	background:#949494;
+	color:#fff;
+	font-size:12px;
+}
+input#btn{
+	width:90px;
+	height:30px;
+	border:0;
+	border-radius:8px;
+	float:right;
+	background:#AEAEAE;
+}
+#btn:active{
+	background:rgb(41, 142, 255);
+}
+.none_tip1{
+	margin-left: 260px;
+	margin-top: 15px;
+	font-size: 20px;
+	text-align: center;
+}
+.none_tip2{
+	width: 500px;
+	margin-left: 250px;
+	margin-top: 15px;
+	font-size: 20px;
+	text-align: center;
+}
+.success_none_tip1{
+	margin-left: 400px;
+	margin-top: 40px;
+	margin-bottom: 0px;
+	font-size: 20px;
+}
+.success_none_tip2{
+	margin-left: 0px;
+	font-size: 20px;
+	text-align: center;
+}
+#headlist{
+	background-color:#f1f3f4;
+	margin-left: 230px;
+	margin-top: 10px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.ck-slide{
+	margin-top:0px;
+}
+#clear{
+	background-color:#f1f3f4;
+	width:100px;
+	height:30px;
+	margin-left: 205px;
+	margin-top: 20px;
+	text-align: center;
+}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>皮爷の箱包馆</title>
+    <link href="/static/css/index.css" rel="Stylesheet" />
+    <link href="/static/css/animate.css" rel="Stylesheet" />
+    <link rel="stylesheet" href="/static/css/slide.css" />
+    <link rel="icon" href="/static/images/index/py.ico">
+    <script src="/static/js/init.js"></script>
+</head>
+
+<body>
+    <header id='header'>
+	<div id="top">
+    <div id="logo" class="lf">
+        <a href="index.html">
+            <img class="animated jello" src="/static/images/header/logo.png" alt="logo" />
+        </a>
+    </div>
+    <div id="top_input" class="lf">
+        <input id="input" type="text" placeholder="请输入您要搜索的内容" />
+        <a href="#" class="rt" ><img id="search" src="/static/images/header/search.png" alt="搜索" /></a>
+    </div>
+    <div class="rt">
+        <ul class="lf">
+            <li><a href="myCollect.html" title="我的收藏"><img class="care" src="/static/images/header/care.png" alt="" /></a><b>|</b></li>
+            <li><a href="myOrder.html" title="我的订单"><img class="order" src="/static/images/header/order.png" alt="" /></a><b>|</b></li>
+            <li><a href="cart.html" title="我的购物车"><img class="shopcar" src="/static/images/header/shop_car.png" alt="" /></a><b>|</b></li>
+            <li><a href="lookforward.html">帮助</a><b>|</b></li>
+            <li id ='my_login'><a href="login.html" >登录</a></li>
+            <li id ='my_login'><a href="/administrators/bannerManagement" >返回管理轮播图</a></li>
+            <li id ='my_login'><a href="/administrators/recommendManagement" >返回管理新品推荐</a></li>
+            <li id ='my_login'><a href="/administrators/classifiedArrivalsManagement" >返回管理分类推荐</a></li>
+        </ul>
+    </div>
+
+</div>
+	</header>
+    <!-- banner部分-->
+
+    <div class="ck-slide">
+        <ul class="ck-slide-wrapper">
+            {% for ban in banner %}
+               {% if forloop.first %}
+            <li>
+                <a href="{{ ban.0 }}"><img src="{{ ban.1 }}" alt=""></a>
+            </li>
+                {% else %}
+            <li style="display:none">
+                <a href="{{ ban.0 }}"><img src="{{ ban.1 }}" alt=""></a>
+            </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <a href="javascript:;" class="ctrl-slide ck-prev">上一张</a> <a href="javascript:;" class="ctrl-slide ck-next">下一张</a>
+        <div class="ck-slidebox">
+            <div class="slideWrap">
+                <ul class="dot-wrap">
+                    <li class="current"><em>1</em></li>
+                    <li><em>2</em></li>
+                    <li><em>3</em></li>
+                    <li><em>4</em></li>
+                    <li><em>5</em></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 特推部分-->
+    <div id="product">
+        <div class="product_1 lf">
+            <div class="aside lf">
+                <a href="{{ recommend.0.0 }}">
+                    <img id="aside_image" src="{{ recommend.0.1 }}" alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="product_2 lf">
+
+            <div class="aside lf">
+                <a href="{{ recommend.1.0 }}">
+                    <img id="aside_image2" src="{{ recommend.1.1 }}" alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="product_3 lf">
+            <div class="aside lf">
+                <a href="{{ recommend.2.0 }}">
+                    <img id="aside_image3" src="{{ recommend.2.1 }}" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- welcome部分-->
+    <div id="welcome">
+    </div>
+    {% for type in type_list %}
+    <div class="study">
+        <p>{{ type.title }}
+            <span data_url="2" class="product_more"><a href="{{ type.link }}">更多>></a></span>
+        </p>
+        <div class="study_left lf">
+            <div class="product_parameters_main">
+                <p>{{ type.goods_list.0.0 }}</p>
+                <h3 class="product_name_main">{{ type.goods_list.0.1 }}</h3>
+
+                <h3 class="product_preferential_main">
+                    限时特惠
+                    <b class="product_price_main">{{ type.goods_list.0.2 }}</b>
+                </h3>
+
+                <p class="view_details"><a href="{{ type.goods_list.0.3 }}">查看详情</a></p>
+            </div>
+            <img class="study_product_main bp1" src="{{ type.goods_list.0.4 }}" alt="" />
+        </div>
+        <div class="study_right rt">
+            <div class="right_top">
+                <div class="product_parameters_vice1">
+                    <h3 class="product_name_vice1">{{ type.goods_list.1.0 }}</h3>
+
+                    <h3 class="product_preferential_vice1"><b class="product_price_vice1">{{ type.goods_list.1.1 }}</b></h3>
+
+                    <p class="view_details"><a href="{{ type.goods_list.1.2 }}">查看详情</a></p>
+                </div>
+                <img class="study_product_vice1 bp2" src="{{ type.goods_list.1.3 }}" alt="" />
+        </div>
+        <img class="study_product_main bp1" src="{{ type.goods_list.1.4 }}" alt="" />
+        <div class="right_bottom">
+            <div class="product_parameters_vice2">
+                <h3 class="product_name_vice2">{{ type.goods_list.2.0 }}</h3>
+
+                <h3 class="product_preferential_vice2"><b class="product_price_vice2">{{ type.goods_list.2.1 }}</b></h3>
+
+                <p class="view_details"><a href="{{ type.goods_list.2.2 }}">查看详情</a></p>
+                <img class="study_product_vice2 bp3" src="{{ type.goods_list.2.3 }}" alt="" />
+            </div>
+            <img class="study_product_main bp1" src="{{ type.goods_list.2.4 }}" alt="" />
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <footer id='footer'>
+	<div id="foot_box">
+    <div class="icon1 lf">
+        <img src="/static/images/footer/icon1.png" alt=""/>
+        <h3>品质保障</h3>
+    </div>
+    <div class="icon2 lf">
+        <img src="/static/images/footer/icon2.png" alt=""/>
+        <h3>私人定制</h3>
+    </div>
+    <div class="icon3 lf">
+        <img src="/static/images/footer/icon3.png" alt=""/>
+        <h3>皮粉特供</h3>
+    </div>
+    <div class="icon4 lf">
+        <img src="/static/images/footer/icon4.png" alt=""/>
+        <h3>专属特权</h3>
+    </div>
+</div>
+<!-- 页面底部-->
+<div class="foot_bj">
+    <div id="foot">
+        <div class="lf">
+            <p class="footer1"><img src="/static/images/footer/logo.png" alt="" class=" footLogo"/></p>
+            <p class="footer2"><img src="/static/images/footer/footerFont.png" alt=""/></p>
+        </div>
+        <!-- <div class="foot_left lf" >
+            <ul>
+                <li><a href="#"><h3>买家帮助</h3></a></li>
+                <li><a href="#">新手指南</a></li>
+                <li><a href="#">服务保障</a></li>
+                <li><a href="#">常见问题</a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><h3>商家帮助</h3></a></li>
+                <li><a href="#">商家入驻</a></li>
+                <li><a href="#">商家后台</a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><h3>关于我们</h3></a></li>
+                <li><a href="#">关于皮爷</a></li>
+                <li><a href="#">联系我们</a></li>
+                <li>
+                    <img src="../images/footer/wechat.png" alt=""/>
+                    <img src="../images/footer/sinablog.png" alt=""/>
+                </li>
+            </ul>
+        </div> -->
+        <div class="service">
+            <p>皮爷の商城客户端</p>
+            <img src="/static/images/footer/ios.png" class="lf">
+            <img src="/static/images/footer/android.png" alt="" class="lf"/>
+        </div>
+        <div class="download">
+            <img src="/static/images/footer/erweima.png">
+        </div>
+		<!-- 页面底部-备案号 #footer -->
+        <div class="record">
+            &copy;2018 皮爷の集团有限公司 版权所有 京ICP证xxxxxxxxxxx
+        </div>
+    </div>
+</div>
+	</footer>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+{#    <script src="/js/index.js"></script>#}
+{#	<!--header-->#}
+
+    <script src="js/slide.js"></script>
+
+</body>
+</html>

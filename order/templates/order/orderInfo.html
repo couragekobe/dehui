@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>订单详情页-皮爷の商城</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/orderInfo.css" />
+    <link rel="icon" href="/static/images/index/py.ico">
+    <script src="/static/js/init.js"></script>
+</head>
+
+<body>
+    <!-- 页面顶部-->
+    <header id="header"></header>
+    <!--详细信息-->
+    <div id="container">
+        <!-- 导航 -->
+
+        <div class="orderInfo_icon">
+            <p>订单<span class="order-num">{{ new_order.orderNo }}</span>&nbsp;&nbsp;&nbsp;当前状态：<span class="state">{{ new_order.status_w }}</span></p>
+        </div>
+        <!-- 订单状态流程图-->
+{#        <div id="orderStatusChart">#}
+{#            <dl>#}
+{#                <dt><img src="/static/images/orderinfo/orderinfo_img1_.png" alt="" /></dt>#}
+{#                <dd>#}
+{#                    <p>提交订单</p>#}
+{#                    <span>2016.01.01 13:00</span>#}
+{#                </dd>#}
+{#            </dl>#}
+{#            <dl>#}
+{#                <dt class="point"><img src="/static/images/orderinfo/orderinfo_img6_.png" alt="" /></dt>#}
+{#            </dl>#}
+{##}
+{#            <dl>#}
+{#                <dt><img src="/static/images/orderinfo/orderinfo_img2_.png" alt="" /></dt>#}
+{#                <dd>#}
+{#                    <p>付款成功</p>#}
+{#                    <span>2016.01.01 13:00</span>#}
+{#                </dd>#}
+{#            </dl>#}
+{#            <dl>#}
+{#                <dt class="point"><img src="/static/images/orderinfo/orderinfo_img6.png" alt="" /></dt>#}
+{#            </dl>#}
+{##}
+{#            <dl>#}
+{#                <dt><img src="/static/images/orderinfo/orderinfo_img3.png" alt="" /></dt>#}
+{#                <dd>#}
+{#                    <p style="display: none">配送中</p>#}
+{#                    <span style="display: none">2016.01.01 13:00</span>#}
+{#                </dd>#}
+{#            </dl>#}
+{#            <dl>#}
+{#                <dt class="point"><img src="/static/images/orderinfo/orderinfo_img6.png" alt="" /></dt>#}
+{#            </dl>#}
+{##}
+{#            <dl>#}
+{#                <dt><img src="/static/images/orderinfo/orderinfo_img4.png" alt="" /></dt>#}
+{#                <dd>#}
+{#                    <p style="display: none">确认收货</p>#}
+{#                    <span style="display: none">2016.01.01 13:00</span>#}
+{#                </dd>#}
+{#            </dl>#}
+{#            <dl>#}
+{#                <dt class="point"><img src="/static/images/orderinfo/orderinfo_img6.png" alt="" /></dt>#}
+{#            </dl>#}
+{##}
+{#            <dl>#}
+{#                <dt><img src="/static/images/orderinfo/orderinfo_img5.png" alt="" /></dt>#}
+{#                <dd>#}
+{#                    <p style="display: none">评价</p>#}
+{#                    <span style="display: none">2016.01.01 13:00</span>#}
+{#                </dd>#}
+{#            </dl>#}
+{##}
+{#        </div>#}
+        <div class="clear">
+
+        <!-- 详细信息-->
+        <h1>详细信息</h1>
+            收货人：<span class="consignee">{{ address.consignee }}</span>&nbsp;&nbsp;&nbsp;&nbsp;邮编：<span class="postcode">100000</span>&nbsp;&nbsp;&nbsp;&nbsp;联系电话：<span
+                class="tel">{{ address.mobile }}</span>
+            <br />
+            <p>收货地址：<span>{{ address.address }}</span></p>
+        </div>
+
+        <!-- 物流信息-->
+         <div style="width: 1000px; margin:0px auto" class="logistics">
+            <h1>物流信息</h1>
+            <p>发货时间：<span>2011.11.11 11:11</span></p>
+            <p>物流公司：<span class="express">顺丰快递</span>
+                <p>快递单号：<span>301111303203048</span></p>
+                <div><span>物流信息：</span>
+                    <div>
+                        <p>2016.11.11 12:11 您的快递在【北京马驹桥镇分拣中心】分拣完毕</p>
+                        <p>2016.11.11 12:11 您的快递在【北京马驹桥镇分拣中心】准备装车</p>
+                        <p>2016.11.11 12:11 您的快递到达【北京昌平分拣中心】</p>
+                        <p>2016.11.11 12:11 您的快递到达【北京昌平沙河分拣中心】</p>
+                    </div>
+                </div>
+        </div>
+
+        <!-- 商品信息-->
+        <div style="width: 1000px; margin:0px auto">
+                <h1 class="commodity">商品信息</h1>
+                <div class="product_confirm">
+                    <ul class="item_title">
+                        <li class="p_info">商品信息</li>
+                        <li class="p_price">单价(元)</li>
+                        <li class="p_count">数量</li>
+                        <li class="p_tPrice">实付款</li>
+                    </ul>
+                    <div>订单编号：<span>{{ new_order.orderNo }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成交时间：{{ new_order.dealtime }}
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系客服：<img src="/static/images/myOrder/kefuf.gif" alt="" /></div>
+                    {% for item in order_goods %}
+                    <ul class="item_detail">
+                        <li class="p_info">
+                            <b><img src="{{ item.head_image }}" width="55pix" height="50px" /></b>
+                            <p class="product_name lf">
+                                {{ item.title }}
+                            </p>
+                            <br />
+                            <span class="product_color ">
+                                颜色：{{ item.spec_info }}
+                            </span>
+                        </li>
+                        <li class="p_price">
+                            <i>专属价</i>
+                            <br />
+                            <span class="pro_price">￥{{ item.price }}</span>
+                        </li>
+                        <li class="p_count">{{ item.amount }}件</li>
+                        <li class="p_tPrice">￥{{ item.tprice }}</li>
+{#        <li class="remark">备注</li>#}
+{#        <li></li>#}
+                    </ul>
+                    {% endfor %}
+                </div>
+
+    </div>
+
+    </div>
+    <footer id="footer"></footer>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script>
+        (function ($) {
+            $.getUrlParam = function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+        })(jQuery);
+
+
+        var company = {
+            0: '圆通快递',
+            1: '申通快递',
+            2: '中通快递',
+            3: '顺丰快递',
+            4: 'EMS',
+            5: '宅急送'
+
+        }
+
+        function staHtml(status) {
+            var statusList = {
+                0: '提交订单',
+                1: '付款成功',
+                2: '配送中',
+                3: '已收货',
+                4: '支付失败',
+                5: '已取消',
+                6: '订单关闭'
+            }
+            var reSta = status
+            var html = ''
+            if (status == 4) {
+                reSta = 0
+            } else if (status == 5) {
+                reSta = -1
+            } else if (status == 6) {
+                reSta = -1
+            }
+            html += `当前状态：<span class="state">${statusList[status]}</span></p></div><div id="orderStatusChart">`
+            for (var i = 1; i < 6; i++) {
+                html += `<dl><dt><img src="/static/images/orderinfo/orderinfo_img${i<=reSta+1?i+'_':i}.png" alt="" /></dt>`
+                if (i <= reSta + 1) {
+                    html += `<dd><p>${statusList[i-1]}</p></dd>`
+                }
+                html += `</dl>`
+                if (i < 5) {
+                    html +=
+                        `<dl><dt class="point"><img src="/static/images/orderinfo/orderinfo_img${i<reSta+1?'6_':'6'}.png" alt="" /></dt></dl>`
+                }
+            }
+            html += `</div><div class="clear">`
+            return html
+        }
+
+        $.ajax({
+            type: 'get',
+            url: baseUrl + '/order/loginfo',
+            datatype: JSON,
+            data: {
+                orderid: $.getUrlParam("orderid")
+            },
+            success: function (response) {
+                var result = JSON.parse(response)
+                var html = ''
+                console.log(result)
+                if (result.result) {
+                    var data = result.data
+
+                    html +=
+                        `<div class="orderInfo_icon"><p>订单: <span class="order-num">${data.order_info.orderNo}</span>&nbsp;&nbsp;&nbsp;`
+                    html += staHtml(data.order_info.status)
+
+                    html += `<h1>详细信息</h1>收货人：<span class="consignee">${data.logist_info.contacts}</span>`
+                    html += data.logist_info.zipcode ?
+                        `&nbsp;&nbsp;&nbsp;&nbsp;邮编：<span class="postcode">${data.logist_info.zipcode}</span>` :
+                        ''
+                    html +=
+                        `&nbsp;&nbsp;&nbsp;&nbsp;联系电话：<span class="tel">13999999999</span><br /><p>收货地址：<span>${data.logist_info.address}</span></p></div>
+                        <div style="width: 1000px; margin:0px auto" class="logistics"><h1>物流信息</h1>`
+                    if (data.logist_info.express_number == '') {
+                        html += `<p>暂无物流信息</p>`
+                    } else {
+                        html +=
+                            `<p>发货时间：<span>${data.logist_info.delivery_time}</span></p>
+                            <p>物流公司：<span class="express">${company[data.logist_info.logistics_company]}</span></p>
+                            <p>快递单号：<span>${data.logist_info.express_number}</span></p>
+                            <div><span>物流信息：</span><div class='expressInfo'>`
+
+                        data.logist_info.log_information.forEach(el => {
+                            html += `<p>${el}</p>`
+                        });
+                        html +=`</div>`
+
+                    }
+                            
+                    html+=`</div><div style="width: 1000px; margin:0px auto"><h1 class="commodity">商品信息</h1><div class="product_confirm"><ul class="item_title">
+                        <li class="p_info">商品信息</li><li class="p_price">单价(元)</li><li class="p_count">数量</li><li class="p_tPrice">实付款</li></ul>`
+                    html +=
+                        `<div>订单编号：<span>${data.order_info.orderNo}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成交时间：${data.order_info.dealtime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                联系客服：<img src="/static/images/orderinfo/kefuf.gif" alt="" /></div>`
+                    data.order_info.goodinfo.forEach(el => {
+                        html +=
+                            `<ul class="item_detail"><li class="p_info"><b><img src="${baseUrl+el.goodsimg}" /></b><p class="product_name lf">${el.title}</p><br />
+                                    <span class="product_color ">颜色：${el.color}</span></li><li class="p_price"><i>皮粉专属价</i><br /><span class="pro_price">￥${el.price}</span></li>
+                                    <li class="p_count">${el.amount}件</li><li class="p_tPrice">￥${el.trprice}</li></ul>`
+                    });
+                    html += `</div></div>`
+                    $('#container').html(html)
+                }
+
+            },
+            error: function (err) {
+                console.log(err)
+
+            }
+        })
+    </script>
+
+</html>

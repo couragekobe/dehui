@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>商品管理</title>
+  <link rel="stylesheet" href="/static/css/administrator/commodity.css">
+ </head>
+ <body>
+	<div id="container">
+		<!--1.页面顶部-->
+		<div id="top"> 
+			<!--顶部logo-->
+			<div id="top-logo">
+				<a href="/administrators/home/">
+					<img src="/static/images/footer/logo.png">
+				</a>
+			</div>
+			<!--顶部导航-->
+			<div id="top-nav">
+				<ul>
+					<li>
+						<a href="/administrators/home/">主页</a><b>|</b>
+					
+						<a href="/administrators/searchClassification">分类管理</a><b>|</b>
+					
+						<a href="#">商品管理</a><b>|</b>
+					
+						<a href="/administrators/increaseSaller">用户管理</a><b>|</b>
+
+                        <a href="/administrators/bannerManagement">首页管理</a>
+					</li>
+				</ul>
+			</div>
+			<!--顶部图标-->
+			<div id="top-right">			
+                    {% if Auser %}
+                        欢迎您:{{ Auser }}
+                    {% endif %}
+				<b>|</b>
+					<a href="/administrators/logout">
+						<img src="/static/images/header/exit.png" alt="退出">
+					</a>			
+			</div>
+		</div>
+		<!--2.搜索-->
+		<div id="search">
+            <form action="/administrators/searchGoods/" method="post">
+                {% csrf_token %}
+                <div>
+                    <span>{{ m }}</span>
+                </div>
+                <span>
+                    <input id="wit" type="text" placeholder="请输入商家信息" name="uname">
+                </span>
+                <span>
+                    <input id="mit" type="submit" value="搜索">
+                </span>
+            </form>
+		</div>
+		<!--3.页面主体-->
+		<div id="main">
+			<form action="/administrators/closedGoods/" method="post">
+            {% csrf_token %}
+                <h1>商户名称:{{ userr.username }}
+					<p>
+                        <input type="hidden" name="{{ userr.id }}" value="{{ userr.id }}">
+						<input type="checkbox" name="{{ userr.id}}del" value="{{ ms }}">{{ ms }}
+					</P>
+				</h1>
+				<hr>
+				<table id="tal_1">
+					<caption><h2>在售商品</h2></caption>
+					<thead>
+						<td>商品名称</td>
+						<td>所属分类</td>
+						<td>下架商品</td>
+					</thead>
+                    {% if userr.is_delete == False %}
+                    {% for good in goods %}
+                    <tbody>
+                        <td><input type="hidden" name="{{ good.title }}" value="{{ good.title }}"> {{ good.title }}</td>
+                        <td>{{ good.goods_type }}</td>
+                        <td><input type="checkbox" name="{{ good.id }}add" value="true"></td>
+                    </tbody>
+                    {% endfor %}
+                    {% endif %}
+				</table>
+                {% if goodsd %}
+				<table id="tal_2">
+					<caption><h2>封禁商品</h2></caption>
+					<thead>
+						<td>商品名称</td>
+						<td>所属分类</td>
+					</thead>
+                    {% for good in goodsd %}
+                    <tbody>
+                        <td><input type="hidden" name="{{ good.title }}" value="{{ good.title }}"> {{ good.title }}</td>
+                        <td>{{ good.goods_type }}</td>
+                    </tbody>
+                    {% endfor %}
+                    {% endif %}
+				</table>
+                    <div>
+                        <input id="btn" type="submit" value="确认提交">
+					</div>
+			</form>
+		</div>
+		<!--4.页面底部-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

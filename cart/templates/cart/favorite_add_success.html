@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% block title %}
+<title>皮爷の收藏夹</title>
+{% endblock %}
+{% block link %}
+    <link href="/static/css/favorite/favorite_list.css" rel="Stylesheet" />
+{% endblock %}
+{% block footbody %}
+        <div class="success_none_tip1">
+            <span>{{ m }}</span>
+        </div>
+        <br>
+        <div class="success_none_tip2">
+            <a href="/cart">去购物车结算>></a>
+        </div>
+        <div class="success_none_tip2">
+            <a href="/goods/detail/{{ spec_id }}">查看商品详情>></a>
+        </div>
+{% endblock %}
+

@@ -1,0 +1,25 @@
+/*顶部*/
+#top{
+	top:50px;
+}
+/*顶部logo*/
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+/* 2.导航 */
+#nav{
+	margin:20px 50px;
+	font-size:18px;
+}
+#nav a {
+ 	color:#ccc;
+ }
+
+/* 3.主体 */
+ #main{
+	font:normal normal bold 28px Arial;
+	height:200px;
+	text-align:center;
+ }
+ 

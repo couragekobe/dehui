@@ -1,0 +1,88 @@
+/*顶部*/
+#top{
+	top:50px;
+}
+#top-logo,#top-nav{
+	float:left;
+}
+/* 顶部logo */
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+/* 顶部导航 */
+#top-nav{
+	position:relative;
+	left:128px;
+	top:10px;
+	font-size:20px;
+}
+#top-nav b{
+	margin-left:12px;
+}
+
+div:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+/*2.导航*/
+ #nav{
+	margin:20px 10px;
+	font-size:18px;
+}
+#nav li{
+	float:left;
+	margin-right:40px;
+}
+/* 3.主体部分 */
+#main{
+	width:758px;
+	margin-left:150px;
+	margin-top:50px;
+}
+
+#main h1{
+	margin-left:30px;
+	font-size:20px;
+	background:#e7e7e7;
+}
+#main table{
+	width:750px;
+	background:#fff;
+	text-align:center;
+}
+table td{
+	padding:10px;
+
+}
+
+table #tab_closed td{
+	width:185px;
+
+}
+
+table #tab_new td{
+	width:148px;
+
+}
+
+table thead{
+	background:#949494;
+	font-size:18px;
+	color:#fff;
+}
+#main input#confirm{
+	width:90px;
+	height:30px;
+	border:0;
+	border-radius:8px;
+	background:#aeaeae;
+	float:right;
+	margin-right:58px;
+}
+#confirm:active{
+	color:#969696;
+}
+

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的订单 - 皮爷の商城</title>
+    <link rel="stylesheet" href="/static//css/index.css">
+    <link href="/static//css/myOrder.css" rel="Stylesheet" />
+    <link rel="icon" href="/static//images/index/py.ico">
+    <script src="/static//js/init.js"></script>
+
+</head>
+
+<body>
+    <!-- 页面顶部-->
+    <header id="header"></header>
+    <!-- 我的订单导航栏-->
+    <div id="nav_order">
+
+    </div>
+    <!--我的订单内容区域 #container-->
+    <div id="container" class="clearfix">
+        <!-- 左边栏-->
+{#        <div id="leftsidebar_box" class="lf">#}
+{#            <div class="line"></div>#}
+{#            <dl class="my_order">#}
+{#                <dt >我的订单#}
+{#                    <img src="/static//images/myOrder/myOrder2.png">#}
+{#                </dt>#}
+{#                <dd class="first_dd"><a href="sale_myOrder.html">全部订单</a></dd>#}
+{#                <dd>#}
+{#                    <a href="sale_myOrder.html?orderst=1">#}
+{#                        待付款#}
+{#                        <span>#}
+{#                            <!--待付款数量--></span>#}
+{#                    </a>#}
+{#                </dd>#}
+{#                <dd>#}
+{#                    <a href="sale_myOrder.html?orderst=2">#}
+{#                        待收货#}
+{#                        <span>#}
+{#                            <!--待收货数量--></span>#}
+{#                    </a>#}
+{#                </dd>#}
+{#                <dd>#}
+{#                    <a href="sale_myOrder.html?orderst=3">#}
+{#                        待评价<span>#}
+{#                            <!--待评价数量--></span>#}
+{#                    </a>#}
+{#                </dd>#}
+{#                <dd>#}
+{#                    <a href="sale_myOrder.html?orderst=4">已取消</a>#}
+{#                </dd>#}
+{#            </dl>#}
+{#            <dl class="footMark">#}
+{#                <dt >我的优惠卷<img src="/static//images/myOrder/myOrder1.png"></dt>#}
+{#            </dl>#}
+{#            <dl class="address">#}
+{#                <dt>收货地址<img src="/static//images/myOrder/myOrder1.png"></dt>#}
+{#                <dd><a href="addressAdmin.html">地址管理</a></dd>#}
+{#            </dl>#}
+{#            <dl class="count_managment">#}
+{#                <dt >帐号管理<img src="/static//images/myOrder/myOrder1.png"></dt>#}
+{#                <dd class="first_dd"><a href="personage.html">我的信息</a></dd>#}
+{#                <dd><a href="personal_password.html">安全管理</a></dd>#}
+{#            </dl>#}
+{#        </div>#}
+        <!-- 右边栏-->
+        <div class="rightsidebar_box rt">
+            <!-- 商品信息标题-->
+            <table id="order_list_title" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th width="345">商品</th>
+                    <th width="82">单价（元）</th>
+                    <th width="50">数量</th>
+                    <th width="82">售后</th>
+                    <th width="100">实付款（元）</th>
+                    <th width="90">交易状态</th>
+                    <th width="92">操作</th>
+                </tr>
+            </table>
+            <!-- 订单列表项 -->
+            {% for item in order_goods_list %}
+            {% csrf_token %}
+
+            <div id="orderItem">
+                <p class="orderItem_title">
+                    <span id="order_id">
+                        &nbsp;&nbsp;订单编号:<a href="#">{{ item.order.orderNo }}</a>
+                    </span>
+                    &nbsp;&nbsp;成交时间：{{ item.order.dealtime }}&nbsp;&nbsp;
+                    <span>
+                        <a href="#" class="servie">
+                            联系客服<img src="/static/images/myOrder/kefuf.gif" />
+                        </a>
+                    </span>
+                </p>
+            </div>
+            <div id="orderItem_detail">
+                <ul>
+                    <li class="product">
+                        <b><a href="#"><img src="{{ item.head_image }}" width="55pix" height="50px" /></a></b>
+                        <b class="product_name lf">
+                            <a href="">{{ item.title }}</a>
+                            <br />
+                        </b>
+                        <b class="product_color ">
+                            颜色：{{ item.spec_name }}
+                        </b>
+                    </li>
+                    <li class="unit_price">
+                        专属价
+                        <br />
+                        ￥{{ item.price }}
+                    </li>
+                    <li class="count">
+                        {{ item.amount }}件
+                    </li>
+                    <li class="sale_support">
+                        <br />
+                        我要维权
+                    </li>
+                    <li class=" payments_received">
+                        ￥{{ item.tprice }}
+                    </li>
+                    <li class="trading_status">
+                        <br />
+                        <img src="/static/images/myOrder/car.png" alt="" />{{ item.status_w }}
+                    </li>
+                    <li class="operate">
+                        <a href="/sale/order_change/{{ item.order.status }}/{{ item.order.id }}/">{{ item.status_ws }}</a>
+                    </li>
+                </ul>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <!--<iframe src="order_status.html" width="1000" height=500""></iframe>-->
+    <footer id="footer"></footer>
+</body>
+<script type="text/javascript" src="/static//js/jquery-3.1.1.min.js"></script>
+<script src="/static//js/index.js"></script>
+<script src="/static//js/jquery.page.js"></script>
+<script type="text/javascript" src="/static//js/order.js"></script>
+<script>
+    (function ($) {
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+    })(jQuery);
+
+{#    $.ajax({#}
+{#        type: "get",#}
+{#        url: baseUrl + '/order/orderlist',#}
+{#        datatype: JSON,#}
+{#        data: {#}
+{#            orderst: $.getUrlParam("orderst")?$.getUrlParam("orderst"):0#}
+{#        },#}
+{#        success: function (response) {#}
+{#            var result = JSON.parse(response);#}
+{#            console.log(result)#}
+{#            var status = {#}
+{#                0: "未付款",#}
+{#                1: "等待发货",#}
+{#                2: '配送中',#}
+{#                3: '已完成',#}
+{#                4: "支付失败",#}
+{#                5: "已取消",#}
+{#                6: '订单关闭'#}
+{#            }#}
+{#            var operate = {#}
+{#                0: "确认付款",#}
+{#                1: "确认收货",#}
+{#                2: '确认收货',　　　　#}
+{#                3: '去评价',　　　　#}
+{#                4: "确认支付",　　　#}
+{#                5: "确认删除",　　　　#}
+{#                6: '确认删除'　　　　#}
+{#            }#}
+{#            if (result.result) {#}
+{#                var html =#}
+{#                    `<table id="order_list_title" cellpadding="0" cellspacing="0"><tr><th width="345">商品</th><th width="82">单价（元）</th><th width="50">数量</th><th width="82">售后</th><th width="100">实付款（元）</th><th width="90">交易状态</th><th width="92">操作</th></tr></table>`#}
+{#                result.list.forEach(el => {#}
+{#                    html +=#}
+{#                        `<div id="orderItem"><p class="orderItem_title"><span id="order_id">&nbsp;&nbsp;订单编号:<a href="#">${el.orderNo}</a></span>&nbsp;&nbsp;成交时间：${el.dealtime}&nbsp;&nbsp;#}
+{#                    <span><a href="#" class="servie">联系客服<img src="/static//images/myOrder/kefuf.gif" /></a></span></p></div><div id="orderItem_detail">`#}
+{#                    var goodss = JSON.parse(el.goodss)#}
+{#                    var this_el = el#}
+{#                    goodss.forEach(element => {#}
+{##}
+{#                        html +=#}
+{#                            `<ul><li class="product"><b class='product_img'><a href="#"><img src="${baseUrl+'/images'+element.fields.goodsimg+'/0.jpg'}" /></a></b><b class="product_name lf"><a href="">${element.fields.title}</a>#}
+{#                            <br /></b><b class="product_color ">颜色：${element.fields.color}</b><b class="product_color ">规格：${element.fields.spec}</b></li><li class="unit_price">专属价<br />￥${element.fields.price}</li><li class="count">${element.fields.amount}件#}
+{#                    </li><li class="sale_support">退款/退货<br />我要维权</li><li class="payments_received">￥${element.fields.trprice}</li><li class="trading_status">#}
+{#                        <img src="/static//images/myOrder/car.png" alt="" />${status[this_el.status]}<br /><a href="orderInfo.html?orderid=${this_el.orderid}">订单详情</a><br /><a href="#" class="view_logistics">查看物流</a>#}
+{#                    </li>`#}
+{#                        如果状态是要支付　就跳转到支付页面#}
+{#                        if(this_el.status==0|this_el.status==4){#}
+{#                            html+=`<li class="operate"><a href="payment.html?orderID=${this_el.orderNo}">${operate[this_el.status]}</a></li></ul>`#}
+{#　　　　　　　　　　　　　　　如果状态是要收货　　　修改该订单的状态为３　#}
+{#                        }else if(this_el.status==1|this_el.status==2){#}
+{#                            html+=`<li class="operate"><a id="changestatu" href="">${operate[this_el.status]}</a></li></ul>`#}
+{#                            去评价#}
+{#                        }else if(this_el.status==3){#}
+{#                            html+=`<li class="operate"><a href="">${operate[this_el.status]}</a></li></ul>`#}
+{#                            删除订单#}
+{#                        }else{#}
+{#　　　　　　　　　　　　　　　　　html+=`<li class="operate"><a href="">${operate[this_el.status]}</a></li></ul>`#}
+{#                        }#}
+{##}
+{##}
+{#                    })#}
+{#                    html += `</div>`#}
+{#                });#}
+{#            } else if (!result.result) {#}
+{#                var html =#}
+{#                    `<div class="order_empty"><img src="/static//images/myOrder/myOrder3.png" alt=""/><p>你可能还没有订单(⊙o⊙)</p><span>赶紧去下单吧 <b>去购物</b></span></div>`#}
+{#            }#}
+{#            $('.rightsidebar_box').html(html)#}
+{#        },#}
+{#        error: function (err) {#}
+{#            console.log(err);#}
+{#        }#}
+{#    })#}
+
+{#    $("#changestatu").click(function () {#}
+{#                    console.log('hhhhhhh');#}
+{#                    var orderid = $(this).attr(orderNo)#}
+{#                    console.log(orderid)#}
+{#                    $.ajax({#}
+{#                        type: "POST",#}
+{#                        url: baseUrl + "/order/confirmorder",#}
+{#                        data: {#}
+{#                            orderid: orderid#}
+{#                        },#}
+{#                        success: function (response) {#}
+{#                            var result = JSON.parse(response)#}
+{#                            console.log(result)#}
+{#                            if (result.result) {#}
+{#                                alert(result.data)#}
+{#                            }#}
+{#                        },#}
+{#                        error: function (err) {#}
+{#                            console.log(err)#}
+{#                        }#}
+{#                    })#}
+{#    })#}
+</script>
+
+</html>

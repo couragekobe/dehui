@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>未上架商品</title>
+  <link rel="stylesheet" href="/static/css/sale/basesale.css">
+  <link rel="stylesheet" href="/static/css/sale/closed_shelves.css">
+</head>
+<body>
+     <!--整体-->
+	<div id="container">
+		<!--1.顶部-->
+		<div id="top">
+			<!--顶部logo-->
+			<div id="top-logo">
+				<a href="{% url 'index' %}">
+					<img src="/static/images/footer/logo.png">
+				</a>
+			</div>
+			<!--顶部导航-->
+			<div id="top-nav">
+				<ul>
+					<li>
+						<a href="{% url 'new_goods' %}">上传商品</a><b>|</b>
+					
+						<a href="{% url 'new_shelves' %}">商品上架</a><b>|</b>
+					
+						<a href="{% url 'closed_shelves' %}">商品下架</a><b>|</b>
+					
+						<a href="{% url 'login' %}">商家登录</a><b>|</b>
+
+						<a href="{% url 'info' %}">用户信息</a><b>|</b>
+					
+						<a href="{% url 'logout' %}">注销登陆</a>
+					</li>
+				</ul>
+			</div>			
+		</div>
+		<!--2.导航-->
+		<!-- <div id="nav">
+			<ul>
+				<li>
+					<a href="#">管理页</a>
+				</li>
+				<li>
+					<a href="news_goods.html">已上架商品管理页</a>
+				</li>
+			</ul>	
+		</div> -->
+		<!--主体部分-->
+		<div id="main">
+			<h1>未上架商品信息</h1>
+			<hr>
+			<form action="{% url 'new_shelves' %}" method="post">
+				{% csrf_token %}
+				<table id="tab_new">
+					<thead>
+						<td>商品ID</td>
+						<td>商品名称</td>
+						<td>商品描述</td>
+
+						<td>是否上架</td>
+					</thead>
+					{% for seller in addGood %}
+					<tbody>
+						<td>{{ seller.id }}</td>
+						<td><a href="/sale/goods/mod/{{ seller.title }}">{{ seller.title }}</a></td>
+						<td>{{ seller.desc }}</td>
+
+						<input type="hidden" name="{{ seller.title }}" value="{{ seller.title }}">
+                        <td><input type="checkbox" name="{{ seller.id }}add" value="true"></td>
+					</tbody>
+					{% endfor %}
+				</table>
+				<div>
+					<input id="confirm" type="submit" value="确认提交">
+				</div>
+			</form>
+		</div>
+		<!--底部页面-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->		
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>		
+	</div>
+ </body>
+</html>

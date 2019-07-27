@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>商户管理</title>
+  <link rel="stylesheet" href="/static/css/administrator/increaseSaller.css">
+ </head>
+ <body>
+	<!--整体-->
+	<div id="container">
+		<!--1.顶部-->
+		<div id="top">
+			<!--顶部logo-->
+			<div id="top-logo">
+				<a href="/administrators/home/">
+					<img src="/static/images/footer/logo.png">
+				</a>
+			</div>
+			<!--顶部导航-->
+			<div id="top-nav">
+				<ul>
+					<li>
+						<a href="/administrators/home/">主页</a><b>|</b>
+
+						<a href="/administrators/classified">分类管理</a><b>|</b>
+
+						<a href="/administrators/searchGoods/">商品管理</a><b>|</b>
+
+						<a href="/administrators/increaseSaller">商户管理</a><b>|</b>
+                        <a href="">首页管理</a>
+					</li>
+				</ul>
+			</div>
+			<!--顶部图标-->
+			<div id="top-right">
+
+                    {% if Auser %}
+                        欢迎您:{{ Auser }}
+                    {% endif %}
+				<b>|</b>
+					<a href="/administrators/logout">
+						<img src="/static/images/header/exit.png" alt="退出">
+					</a>
+
+			</div>
+		</div>
+		<!--2.搜索 增加-->
+		<div id="nav">
+			<ul>
+				<li>
+					<a href="/administrators/bannerManagement">轮播图管理</a>
+				</li>
+				<li>
+					<a href="/administrators/recommendManagement">新品推荐管理</a>
+				</li>
+                <li>
+					<a href="">分类推荐管理</a>
+				</li>
+			</ul>
+		</div>
+		<!--3、主体部分-->
+		<div id="main">
+			<table></table>
+            <div id="header">
+                <span><b>分类推荐管理</b></span>
+                <span>{{ m }}</span>
+            </div>
+            <!--分类信息 -->
+            <div id="body">
+                <!--店铺名称-->
+                <form action="/administrators/classifiedArrivalsManagement/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="content">
+                        <span class="sname">修改分类：</span>
+                        <select name="goods_type" id="" required>
+                            {% for type in types %}
+                                <option value="{{ type.id }}">{{ type.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="content">
+                        <span>{{ m1 }}</span>
+                        <div>
+                            <span class="sname">商品名称:</span>
+                            <input type="text" name="NO1_title">
+                        </div>
+                        <div>
+                            <span class="sname">所属用户:</span>
+                            <input type="text" name="NO1_uname">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <span>{{ m2 }}</span>
+                        <div>
+                            <span class="sname">商品名称:</span>
+                            <input type="text" name="NO2_title">
+                        </div>
+                        <div>
+                            <span class="sname">所属用户:</span>
+                            <input type="text" name="NO2_uname">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <span>{{ m3 }}</span>
+                        <div>
+                            <span class="sname">商品名称:</span>
+                            <input type="text" name="NO3_title">
+                        </div>
+                        <div>
+                            <span class="sname">所属用户:</span>
+                            <input type="text" name="NO3_uname">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <span class="sname">提交类型：</span>
+                        <label> <input type="radio" name="submit_type" value="修改">提交修改</label>
+                        <label> <input type="radio" name="submit_type" value="预览">提交预览</label>
+                    </div>
+                    <!--提交按钮-->
+                    <div class="content">
+                        <input id="save" type="submit" value="保存更改">
+                    </div>
+                </form>
+            </div>
+        </div>
+		<!--4.底部页面-->
+		<div id="footer">
+			<div>
+				<img src="/static/images/footer/icon1.png">
+				<p>品质保障</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon2.png">
+				<p>私人订制</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon3.png">
+				<p>皮粉特供</p>
+			</div>
+			<div>
+				<img src="/static/images/footer/icon4.png">
+				<p>专属特权</p>
+			</div>
+		</div>
+		<!--5.共用底部-->
+		<div id="bottom">
+			<div class="download">
+				<img src="/static/images/footer/erweima.png">
+			</div>
+			<div class="service">
+				<p>皮爷の商城客户端</p>
+				<img src="/static/images/footer/android.png">
+				<img src="/static/images/footer/ios.png">
+			</div>
+			<p>
+				<img src="/static/images/footer/logo.png" id="footLogo">
+			</p>
+			<p>
+				<img src="/static/images/footer/footerFont.png" id="footFont">
+			</p>
+			<div class="proprietary">
+				<p>*2019皮爷の集团有限公司版权所有 &copy京ICP证xxxxxxxx</p>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>
+

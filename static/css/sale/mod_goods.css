@@ -1,0 +1,103 @@
+/*顶部*/
+#top{
+	top:50px;
+}
+#top-logo,#top-nav{
+	float:left;
+}
+/* 顶部logo */
+#top-logo img{
+	width:168px;
+	border-radius:10px;
+}
+/* 顶部导航 */
+#top-nav{
+	position:relative;
+	left:128px;
+	top:10px;
+	font-size:20px;
+}
+#top-nav b{
+	margin-left:12px;
+}
+
+div:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+/*2.导航*/
+#nav{
+	margin:20px 10px; 
+	font-size:18px;
+}
+#nav li{
+	float:left;
+	margin-right:20px;
+}
+#nav li a {
+	color:#ccc;
+}
+/* 3、主体 */
+#main{
+	clear:left;
+	width:758px;
+	margin-left:150px;
+	margin-top:50px;
+	background:#ccc;
+}
+ 
+#header{
+	font-size:20px;
+	padding:20px 30px 10px;
+	background:#937171;
+}
+
+#main #body .content{
+	padding-left:38px;
+	margin-top:30px;
+	font-size:18px;
+}
+#main #body .content input{
+	width:318px;
+	height:36px;
+	border:none;
+	border-radius:8px;
+}
+#main #body .content img{
+	width:310px;
+	height:150px;
+}
+/*#main #body .content span{*/
+	/*display:inline-block;*/
+	/*text-align:right;*/
+	/*width:158px;*/
+/*}*/
+#main #body .content #save{
+	position:relative;
+	width:150px;
+	height:50px;
+	border:none;
+	border-radius:3px;
+	margin:20px auto 30px 48px;
+	background:#997679;
+	
+} 
+#main #body .content input#save:active{
+	color:#696969;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
